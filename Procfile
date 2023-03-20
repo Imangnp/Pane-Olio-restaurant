@@ -1,1 +1,1 @@
-web: gunicorn PROJ_NAME.wsgi
+web: gunicorn pane_e_olio.wsgi
