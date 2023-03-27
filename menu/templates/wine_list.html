@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Wine List</h1>
+    <ul>
+    {% for item in wine_items %}
+        <li>{{ item.name }} - {{ item.description }} - 
+        {% if item.price_per_glass %}{{ item.price_per_glass }} per glass, {% endif %}
+        {{ item.price_per_bottle }} per bottle</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
