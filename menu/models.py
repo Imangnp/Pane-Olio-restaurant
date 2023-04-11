@@ -10,8 +10,7 @@ class MenuItem(models.Model):
     # Choices for the food categories of a menu item
     FOOD_CATEGORIES = [
         ('antipasti', 'Antipasti'),
-        ('primi', 'Primi'),
-        ('secondi', 'Secondi'),
+        ('main_courses', 'Main Courses'),
         ('dessert', 'Dessert'),
     ]
 

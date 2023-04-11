@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
+# Define the URL patterns for the project
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('menu.urls', namespace='menu')),
+    path('', views.home, name='home'),
     path('menu/', include('menu.urls', namespace='menu')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# serve static files in development
