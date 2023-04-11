@@ -1,4 +1,4 @@
-/* HomePage */
+/* Header HomePage */
 .navbar-nav {
     --bs-nav-link-color: rgb(255 255 255);
 }
@@ -10,4 +10,29 @@
 }
 .border-bottom {
     border-bottom: var(--bs-border-width) var(--bs-border-style) #dee2e624!important;
+}
+
+.header-bg {
+    background-image:url({{ MEDIA_URL }}background-home.svg);
+    background-size: cover;
+    margin-top: -76px;
+}
+.header-title {
+    padding: 250px 0 250px 0;
+}
+
+.footer-bg {
+    background-color: #1B1B1B;
+    color: white;
+    padding: 20px 0;
+}
+
+.text-spac {
+    letter-spacing :3px;
+}
+
+.iframe-radius {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
