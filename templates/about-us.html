@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Header About Us Page -->
+    <section class="about-bg">
+        <div class="text-white header-title text-center">        
+        <p class="text-spac text-uppercase">Who are we</p>
+        <h3>About Us</h3>
+        <h4 class="text-danger">Our History</h4>
+        </div>
+    </section>
+
+    <!-- About US -->
+    <section class="container">
+    <div class="pt-5 py-5">
+        <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h4>THE Restaurant</h4>
+            <p class="lh-lg pt-3">Pane e Olio is an authentic Italian restaurant located in the heart of Stockholm. Our mission is to provide
+                our guests with a true taste of Italy through fresh, authentic cuisine and carefully selected wines.
+                Our chefs use only the finest, locally sourced ingredients to create delicious dishes that are bursting with flavor.
+                We believe that good food should be accompanied by good wine, which is why we have an extensive wine list featuring a 
+                variety of Italian wines to complement our menu at Pane e Olio, we pride ourselves on providing a warm and welcoming 
+                atmosphere where our guests can enjoy a relaxing and memorable dining experience.  
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="{{ MEDIA_URL }}pasta-maker.png" alt="Image of making pasta">
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Our Chef  -->
+    <section class="chef-bg">
+    <div class="container pt-5 py-5">
+        <div class="row">
+        <div class="col-lg-6">
+            <img class="img-fluid" src="{{ MEDIA_URL }}chef-mario.png" />
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h6 class="text-danger text-spac">20 Year of Experience</h6>
+            <h3>Head Chef's Menu</h3>
+            <p class="lh-lg pt-3 text-white-50">Mario is an acclaimed Italian chef with over 20 years of experience
+                in the culinary arts. He has earned two Michelin stars for his exceptional cuisine, which showcases
+                the vibrant flavors and rich traditions of Italian cooking. Mario's passion for food is evident in
+                every dish he creates, and his skill and expertise have made him a revered figure in the world of
+                haute cuisine. Whether he's preparing a classic pasta dish or reinventing a traditional recipe,
+                Mario's commitment to quality and innovation is always on display.
+            </p>
+            <div class="row mt-5">
+            <div class="col-md-2">
+                <img src="{{ MEDIA_URL }}signature.svg" class="float-start" alt="user">
+            </div>
+            <div class="col-md-10">
+                <span class="">Mario Rossi</span>
+                <p class="text-danger fs-6">Master Chef</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+
+
+
+{%endblock%}

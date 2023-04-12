@@ -2,6 +2,118 @@
 
 {% block content %}
 
-<h1>index content here</h1>
+    <!-- Header Home Page -->
+    <section class="header-bg">
+        <div class="text-white header-title text-center">
+            <img class="my-4" width="21%" src="{{ MEDIA_URL }}logo.svg" alt="Logo image in the header">
+            <h3>Restaurant & Wine Bar</h3>
+            <p>Kungsgatan 1, Stockholm</p>
+            <p class="lead">
+            <a href="" type="button" class="btn btn-outline-danger mt-3">MAKE A RESERVATION</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- About US -->
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center mt-5 mb-5">
+            <p class="text-danger text-spac">Pane e olio Restaurant</p>
+            <h3 class="mt-3">About Us</h3>
+            <p class="lh-lg mt-5">Pane e Olio is an authentic Italian restaurant located in the heart of Stockholm. Our mission is to provide our guests with a true taste of Italy through fresh, authentic cuisine and carefully selected wines. Our chefs use only the finest, locally sourced ingredients to create delicious dishes that are bursting with flavor.
+                We believe that good food should be accompanied by good wine, which is why we have an extensive wine list featuring a variety of Italian wines to complement our menu
+                At Pane e Olio, we pride ourselves on providing a warm and welcoming atmosphere where our guests can enjoy a relaxing and memorable dining experience. </p>
+                <a class="text-danger text-spac" href="{% url 'aboutus' %}">LEARN MORE ></a>
+            </div>
+            <div class="col-lg-6 mt-5 mb-5">
+            <img class="img-fluid" src="{{ MEDIA_URL }}about-us.svg" alt="Image of the restaurant">
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef recommended -->
+    <section class="chef-bg">
+        <div class="container text-center pt-5 py-5">
+        <div class="row">
+            <div class="pb-5">
+            <h6 class="text-uppercase text-spac">Should to Try</h6>
+            <h3>Chef Recommends</h3>
+            </div>
+            <div class="col-md-4 pt-3">
+            <div class="card text-bg-dark">
+                <img src="{{ MEDIA_URL }}antipasto.png" class="" alt="...">
+                <div class="align-items-end food-img-overlay">
+                <p class="col-12 card-text"><small>FOOD</small></p>
+                <h5 class="col-12 pb-3">Aperitivo Umbro</h5>
+                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4 pt-3">
+            <div class="card text-bg-dark">
+                <img src="{{ MEDIA_URL }}pasta.png" class="" alt="...">
+                <div class="align-items-end food-img-overlay">
+                <p class="col-12 card-text"><small>FOOD</small></p>
+                <h5 class="col-12 pb-3">Aperitivo Umbro</h5>
+                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4 pt-3">
+            <div class="card text-bg-dark">
+                <img src="{{ MEDIA_URL }}wine.png" class="" alt="...">
+                <div class="align-items-end food-img-overlay">
+                <p class="col-12 card-text"><small>FOOD</small></p>
+                <h5 class="col-12 pb-3">Aperitivo Umbro</h5>
+                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours -->
+    <section class="cover-container opening-bg">
+        
+        <div class="text-white p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="p-5 text-center text-bg-dark">
+                            <h2 class="text-center m-4">Opening Hours</h2>
+                            <hr>
+                            <h6 class="mt-5">Monday to Sunday</h6>
+                            <h4 class="text-white-50 mt-3">11:00 to 22:00</h3>
+                            <a href="Reservation.html" type="button" class="btn btn-outline-danger mt-5">Make A Reservation</a>
+                            <p class="text-white-50 mt-5">You can also call: <span class="text-danger">855 100 4444</span>&nbsp;to make a reservation.</p>
+                            <p class="text-white-50 mt-3">Kungsgatan 1, Stockholm - Sweden</p>
+                            </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="quotation p-5 mt-5">
+                            <p class="mt-5 fst-italic">
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                                quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                            <div class="row mt-5">
+                                <div class="col-md-1">
+                                    <img src="{{ MEDIA_URL }}customer.png" class="float-start" alt="user">
+                                </div>
+                                <div class="col-md-11">
+                                    <span class="text-danger">Nolan White</span>
+                                    <p class="fs-6">Customer review</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
 
 {%endblock%}

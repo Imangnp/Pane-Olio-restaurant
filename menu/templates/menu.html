@@ -1,7 +1,124 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Menu</h1>
+
+    <!-- Header Menu Page -->
+    <section class="menu-bg">
+        <div class="text-white header-title text-center">        
+            <p class="text-spac text-uppercase">pane e olio</p>
+            <h3>Menu</h3>
+            <h4 class="text-danger">Food & Wine</h4>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu-list-bg">
+        <div class="container">
+            <div class="pt-5 py-5">
+
+                <!-- Antipasti -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h3>Antipasti</h3>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 quote-icon-left">
+                        {% for item in antipasti_items %}
+                        <div class="m3">
+                        <p class="mb-lg-0">{{ item.name }}
+                            <span class="text-danger float-r">...................................................  <span>{{ item.price }} kr </span></span>
+                            <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+
+
+                <!-- Main Courses -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h3>Main Courses</h3>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 quote-icon-left">
+                        {% for item in main_courses_items %}
+                        <div class="m3">
+                        <p class="mb-lg-0">{{ item.name }}
+                            <span class="text-danger float-r">...................................................  <span>{{ item.price }} kr </span></span>
+                            <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h3>Desserts</h3>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 quote-icon-left">
+                        {% for item in dessert_items %}
+                        <div class="m3">
+                        <p class="mb-lg-0">{{ item.name }}
+                            <span class="text-danger float-r">...................................................  <span>{{ item.price }} kr </span></span>
+                            <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Wine -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h3>Wine</h3>
+                    </div>
+                    <!-- Column -->
+                    <h4 class="text-center mb-5">Red</h4>
+                    <div class="col-md-6 quote-icon-left">
+                        {% for item in red_wine_items %}
+                        <div class="m3">
+                        <p class="mb-lg-0">{{ item.name }}
+                            <span class="text-danger float-r">...................................................  <span>{{ item.price }} kr </span></span>
+                            <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Column -->
+                    <h4 class="text-center mb-5">White</h4>
+                    <div class="col-md-6 quote-icon-left">
+                        {% for item in white_wine_items %}
+                        <div class="m3">
+                        <p class="mb-lg-0">{{ item.name }}
+                            <span class="text-danger float-r">...................................................  <span>{{ item.price }} kr </span></span>
+                            <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
     <ul>
     {% for item in menu_items %}
         <li>{{ item.name }} - {{ item.description }} - {{ item.price }}</li>

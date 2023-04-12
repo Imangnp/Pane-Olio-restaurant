@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,172 +22,158 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-</head>
-<body>
+  </head>
 
-        <!-- LOGIN Modal -->
-        <div class="modal fade" id="login" aria-hidden="true" aria-labelledby="modalToggleLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-            <form>
-                <div class="text-center mt-3">
-                <h4 class="mb-lg-0">Log in to your account</h4>
-                <p class="text-black-50">Welcome back! Please enter your details.</p>
+  <body>
+
+    <!-- LOGIN Modal -->
+    <div class="modal fade" id="login" aria-hidden="true" aria-labelledby="modalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
+        <form>
+            <div class="text-center mt-3">
+            <h4 class="mb-lg-0">Log in to your account</h4>
+            <p class="text-black-50">Welcome back! Please enter your details.</p>
+            </div>
+            <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-12 col-form-label">User Name</label>
+            <div class="col-sm-12">
+                <input type="text" placeholder="Enter your username" class="form-control" id="inputEmail">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
+            <div class="col-sm-12">
+                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <div class="col-sm-6">
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                    Remember me
+                </label>
                 </div>
-                <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-12 col-form-label">User Name</label>
-                <div class="col-sm-12">
-                    <input type="text" placeholder="Enter your username" class="form-control" id="inputEmail">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
-                <div class="col-sm-12">
-                    <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-sm-6">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                    <label class="form-check-label" for="gridCheck1">
-                        Remember me
-                    </label>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <a href="#" class="text-danger">Forgot password</a>
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-sm-12 d-grid">
-                    <button type="button" class="btn btn-danger">Log in</button>
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-sm-12 d-grid">
-                    <p>Don’t have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#signup" class="text-danger">Sign up</a></p>
-                </div>
-                </div>
+            </div>
+            <div class="col-sm-6">
+                <a href="#" class="text-danger">Forgot password</a>
+            </div>
+            </div>
+            <div class="row mb-3">
+            <div class="col-sm-12 d-grid">
+                <button type="button" class="btn btn-danger">Log in</button>
+            </div>
+            </div>
+            <div class="row mb-3">
+            <div class="col-sm-12 d-grid">
+                <p>Don’t have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#signup" class="text-danger">Sign up</a></p>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signup" aria-hidden="true" aria-labelledby="modalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
+        <form>
+            <div class="text-center mt-3">
+            <h4 class="mb-lg-0">Sign Up</h4>
+            <p class="text-black-50">Welcome! Please enter your details to sign up</p>
+            </div>
+            <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-12 col-form-label">Email</label>
+            <div class="col-sm-12">
+                <input type="email" placeholder="Enter your email" class="form-control" id="inputEmail">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <label for="phone" class="col-sm-12 col-form-label">Phone</label>
+            <div class="col-sm-12">
+                <input type="text" placeholder="Enter your Phone Number" class="form-control" id="phone">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
+            <div class="col-sm-12">
+                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <label for="inputPassword" class="col-sm-12 col-form-label">Confirm Password</label>
+            <div class="col-sm-12">
+                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
+            </div>
+            </div>
+            <div class="row mb-3">
+            <div class="col-sm-12 d-grid">
+                <button type="button" class="btn btn-danger">Sign Up</button>
+            </div>
+            </div>
+            <div class="row mb-3">
+            <div class="col-sm-12 d-grid">
+                <p>You already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="text-danger">Log in</a></p>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg bg-body-tertiary border-bottom">
+        <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{{ MEDIA_URL }}logo.svg" alt="Logo of the Pane & Olio" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav col align-self-center me-auto mb-2 mb-lg-0 justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">MENU</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">RESERVE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">CONTACT</a>
+            </li>
+            </ul>
+            <form class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" data-bs-theme="dark">
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#login" href="#">LOG IN</a>
+                </li>
+            </ul>
             </form>
-            </div>
         </div>
         </div>
-        </div>
-        <!-- Sign Up Modal -->
-        <div class="modal fade" id="signup" aria-hidden="true" aria-labelledby="modalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-            <form>
-                <div class="text-center mt-3">
-                <h4 class="mb-lg-0">Sign Up</h4>
-                <p class="text-black-50">Welcome! Please enter your details to sign up</p>
-                </div>
-                <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-12 col-form-label">Email</label>
-                <div class="col-sm-12">
-                    <input type="email" placeholder="Enter your email" class="form-control" id="inputEmail">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <label for="phone" class="col-sm-12 col-form-label">Phone</label>
-                <div class="col-sm-12">
-                    <input type="text" placeholder="Enter your Phone Number" class="form-control" id="phone">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
-                <div class="col-sm-12">
-                    <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <label for="inputPassword" class="col-sm-12 col-form-label">Confirm Password</label>
-                <div class="col-sm-12">
-                    <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-sm-12 d-grid">
-                    <button type="button" class="btn btn-danger">Sign Up</button>
-                </div>
-                </div>
-                <div class="row mb-3">
-                <div class="col-sm-12 d-grid">
-                    <p>You already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="text-danger">Log in</a></p>
-                </div>
-                </div>
-            </form>
-            </div>
-        </div>
-        </div>
-        </div>
+    </nav>
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg border-bottom">
-            <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ MEDIA_URL }}logo.svg" alt="Logo of the Pane & Olio" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav col align-self-center me-auto mb-2 mb-lg-0 justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">MENU</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">RESERVE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">CONTACT</a>
-                </li>
-                </ul>
-                <form class="d-flex">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" data-bs-theme="dark">
-                </ul>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#login" href="#">LOG IN</a>
-                    </li>
-                </ul>
-                </form>
-            </div>
-            </div>
-        </nav>
-
-        <!-- Header -->
-        <!-- <div class="cover-container header-bg">
-            <main class="header-title text-center px-3">
-            <div class="text-white">
-                <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
-                <h3>Restaurant & Wine Bar</h3>
-                <p>Kungsgatan 1, Stockholm</p>
-                <p class="lead">
-                <a href="" type="button" class="btn btn-outline-danger mt-3">MAKE A RESERVATION</a>
-                </p>
-            </div>
-            </main>
-        </div> -->
-
-    
 
     {% block content %}
 
     {% endblock content %}
 
 
-  <!-- Reservation Form -->
-  <section class="Reserve-bg">
+    <!-- Reservation Form -->
+    <section class="Reserve-bg">
     <div class="container pt-5 py-5">
       <div class="row">
         <div class="container" data-aos="fade-up">
@@ -197,7 +183,7 @@
               <h6 class="mt-3">Make a reservation now</h6>
               <h6>Or call us  at  855 100 4444</h6>
             </div>
-  
+
             <div class="col-lg-5">
               <div class="h-100 p-5 text-center reserve-bg-light mb-5">
                 <h2 class="display-6 text-center p-3 mb-4 mt-3 border-bottom reseve-title">Make A Reservation</h2>
@@ -263,44 +249,44 @@
         </div>
       </div>
     </div>
-  </section>
+    </section>
 
     <!-- FOOTER -->
     <footer id="contact" class="footer-bg">
-        <div class="container">
-        <footer>
-            <div class="row">
-            <div class="col-md-2 mb-3">
-                <div class="footer-info mt-2 text-center">
-                <img class="my-4" width="80%" src="{{ MEDIA_URL }}logo.svg" />              
-                </div>
-            </div>
-        
-            <div class="col-md-3 text-center mb-3">
-                <h4 class="p-3 mb-4 mt-3 text-danger">Opening Hours</h3>
-                <h6 class="mb-3">Monday to Sunday</h6>
-                <h4 class="ophr-title mb-3">11:00 to 22:00</h3>
-                <a href="R" type="button" class="btn btn-outline-danger mt-3">Make A Reservation</a>
-            </div>
-        
-            <div class="col-md-3 text-center mb-3">
-                <h4 class="p-3 mb-4 mt-3 text-danger">Contact Info</h3>
-                <h6 class="mb-3 text-white-50">Kungsgatan 1, Stockholm</h6>
-                <h4 class="ophr-title mb-3">855 100 4444</h3>
-                <h6 class="mb-3 text-white-50">info@paneeolio.com</h6>
-            </div>
-        
-            <div class="col-md-4 mt-5">
-                <iframe class="iframe-radius" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.812887448059!2d18.071807!3d59.33607769999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5c94662357%3A0xee524f1550d9e594!2sKungsgatan%201%2C%20111%2043%20Stockholm!5e0!3m2!1ssv!2sse!4v1681220907441!5m2!1ssv!2sse"></iframe>
-            </div>
-            </div>
-            <p class="text-white-50 pt-5 my-4">© Copyright 2023 by Imangnp</p>
-        </footer>
-        </div>
+      <div class="container">
+      <footer>
+          <div class="row">
+          <div class="col-md-2 mb-3">
+              <div class="footer-info mt-2 text-center">
+              <img class="my-4" width="80%" src="{{ MEDIA_URL }}logo.svg" />              
+              </div>
+          </div>
+      
+          <div class="col-md-3 text-center mb-3">
+              <h4 class="p-3 mb-4 mt-3 text-danger">Opening Hours</h3>
+              <h6 class="mb-3">Monday to Sunday</h6>
+              <h4 class="ophr-title mb-3">11:00 to 22:00</h3>
+              <a href="R" type="button" class="btn btn-outline-danger mt-3">Make A Reservation</a>
+          </div>
+      
+          <div class="col-md-3 text-center mb-3">
+              <h4 class="p-3 mb-4 mt-3 text-danger">Contact Info</h3>
+              <h6 class="mb-3 text-white-50">Kungsgatan 1, Stockholm</h6>
+              <h4 class="ophr-title mb-3">855 100 4444</h3>
+              <h6 class="mb-3 text-white-50">info@paneeolio.com</h6>
+          </div>
+      
+          <div class="col-md-4 mt-5">
+              <iframe class="iframe-radius" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.812887448059!2d18.071807!3d59.33607769999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5c94662357%3A0xee524f1550d9e594!2sKungsgatan%201%2C%20111%2043%20Stockholm!5e0!3m2!1ssv!2sse!4v1681220907441!5m2!1ssv!2sse"></iframe>
+          </div>
+          </div>
+          <p class="text-white-50 pt-5 my-4">© Copyright 2023 by Imangnp</p>
+      </footer>
+      </div>
     </footer>
 
     <!-- Boostrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
-</body>
+  </body>
 </html>
