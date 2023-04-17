@@ -28,102 +28,64 @@
 
     <!-- LOGIN Modal -->
     <div class="modal fade" id="login" aria-hidden="true" aria-labelledby="modalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-body">
-        <form>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+              form>
             <div class="text-center mt-3">
-            <h4 class="mb-lg-0">Log in to your account</h4>
-            <p class="text-black-50">Welcome back! Please enter your details.</p>
+              <h4 class="mb-lg-0">Log in to your account</h4>
+              <p class="text-black-50">Welcome back! Please enter your details.</p>
             </div>
             <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-12 col-form-label">User Name</label>
-            <div class="col-sm-12">
-                <input type="text" placeholder="Enter your username" class="form-control" id="inputEmail">
-            </div>
-            </div>
-            <div class="row mb-3">
-            <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
-            <div class="col-sm-12">
-                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-            </div>
+              <label for="inputEmail3" class="col-sm-12 col-form-label">User Name</label>
+              <div class="col-sm-12">
+                <input type="text" placeholder="Enter your username" class="form-control" id="inputEmail3">
+              </div>
             </div>
             <div class="row mb-3">
-            <div class="col-sm-6">
+              <label for="inputPassword3" class="col-sm-12 col-form-label">Password</label>
+              <div class="col-sm-12">
+                <input type="password" placeholder="*******" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-6">
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                    Remember me
-                </label>
+                  <input class="form-check-input" type="checkbox" id="gridCheck1">
+                  <label class="form-check-label" for="gridCheck1">
+                    Remember for 30 days
+                  </label>
                 </div>
-            </div>
-            <div class="col-sm-6">
+              </div>
+              <div class="col-sm-6">
                 <a href="#" class="text-danger">Forgot password</a>
-            </div>
+              </div>
             </div>
             <div class="row mb-3">
-            <div class="col-sm-12 d-grid">
+              <div class="col-sm-12 d-grid">
                 <button type="button" class="btn btn-danger">Log in</button>
-            </div>
+              </div>
             </div>
             <div class="row mb-3">
-            <div class="col-sm-12 d-grid">
+              <div class="col-sm-12 d-grid">
                 <p>Don’t have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#signup" class="text-danger">Sign up</a></p>
+              </div>
             </div>
+          </form>
+             
             </div>
-        </form>
         </div>
-    </div>
-    </div>
+      </div>
     </div>
     <!-- Sign Up Modal -->
     <div class="modal fade" id="signup" aria-hidden="true" aria-labelledby="modalToggleLabel2" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-body">
-        <form>
-            <div class="text-center mt-3">
-            <h4 class="mb-lg-0">Sign Up</h4>
-            <p class="text-black-50">Welcome! Please enter your details to sign up</p>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+              
             </div>
-            <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-12 col-form-label">Email</label>
-            <div class="col-sm-12">
-                <input type="email" placeholder="Enter your email" class="form-control" id="inputEmail">
-            </div>
-            </div>
-            <div class="row mb-3">
-            <label for="phone" class="col-sm-12 col-form-label">Phone</label>
-            <div class="col-sm-12">
-                <input type="text" placeholder="Enter your Phone Number" class="form-control" id="phone">
-            </div>
-            </div>
-            <div class="row mb-3">
-            <label for="inputPassword" class="col-sm-12 col-form-label">Password</label>
-            <div class="col-sm-12">
-                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-            </div>
-            </div>
-            <div class="row mb-3">
-            <label for="inputPassword" class="col-sm-12 col-form-label">Confirm Password</label>
-            <div class="col-sm-12">
-                <input type="password" placeholder="*******" class="form-control" id="inputPassword">
-            </div>
-            </div>
-            <div class="row mb-3">
-            <div class="col-sm-12 d-grid">
-                <button type="button" class="btn btn-danger">Sign Up</button>
-            </div>
-            </div>
-            <div class="row mb-3">
-            <div class="col-sm-12 d-grid">
-                <p>You already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="text-danger">Log in</a></p>
-            </div>
-            </div>
-        </form>
         </div>
-    </div>
-    </div>
+      </div>
     </div>
 
     <!-- Navbar -->
@@ -144,7 +106,7 @@
                 <a class="nav-link" href="{% url 'aboutus' %}">ABOUT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">MENU</a>
+                <a class="nav-link" href="{% url 'menu:menu_items' %}">MENU</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">RESERVE</a>
@@ -157,9 +119,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" data-bs-theme="dark">
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#login" href="#">LOG IN</a>
-                </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">LOG OUT</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">LOG IN</a>
+              </li>
+              {% endif %}
             </ul>
             </form>
         </div>
@@ -240,7 +208,9 @@
                       </select>
                     </div>
                     <div class="d-grid gap-2 mt-5">
+
                       <button class="btn btn-danger text-uppercase text-space" type="button">Check Availability</button>
+
                     </div>
                   </form>
               </div>

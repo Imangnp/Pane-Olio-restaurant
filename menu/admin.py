@@ -9,13 +9,7 @@ class MenuItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'price', 'description')
     list_filter = ('category',)
     search_fields = ('name', 'description')
-
-    # def get_fields(self, request, obj=None):
-    #     fields = super().get_fields(request, obj=obj)
-    #     if obj and obj.category not in ('red_wine', 'white_wine'):
-    #         fields.remove('price_per_glass')
-    #         fields.remove('price_per_bottle')
-    #     return fields
+    
 
 @admin.register(WineList)
 class WineListAdmin(admin.ModelAdmin):

@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('aboutus/', views.aboutus, name='aboutus'),
-    path('menu/', include('menu.urls', namespace='menu')),
+    path('menu/', include('menu.urls')),
+    path('accounts/', include('allauth.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# serve static files in development

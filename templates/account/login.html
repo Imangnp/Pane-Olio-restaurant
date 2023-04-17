@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<!-- Header Home Page -->
+<section class="header-bg">
+  <div class="background-light">
+    <div class="header-title text-center px-3">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-5 d-flex justify-content-center">
+            <div class="text-white">
+              <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+              <h3>Restaurant & Wine Bar</h3>
+              <p>Kungsgatan 1, Stockholm</p>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+              <div class="text-center">
+                <h3 class="mb-lg-0 pb-3">{% trans "Log In" %}</h3>
+                  <p class="text-black-50">{% blocktrans %}Welcome to Pane e Olio. To Be able book a table, please log in.
+                    If you have not created an account yet, then please
+                  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+              </div>
+              <div class="row">
+                  <form class="col-form-label" method="POST" action="{% url 'account_login' %}">
+                    <div class="col-md-12 mt-3">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    </div>
+                    
+                    <div class="row mb-3">
+                      <div class="col-sm-6">
+                        <a href="{% url 'account_reset_password' %}" class="button secondaryAction">{% trans "Forgot Password?" %}</a>
+                      </div>
+                    </div>
+          
+                    <div class="row">
+                      <div class="col-sm-12 d-grid">
+                        <button type="submit" class="btn btn-danger">{% trans "log In" %}</button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

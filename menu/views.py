@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from .models import MenuItem, WineList
 
-
 # Create your views here.
 
 def menu(request):
+    # Devide menu Items to diffrent categories
     antipasti_items = MenuItem.objects.filter(category='antipasti')
     main_courses_items = MenuItem.objects.filter(category='main_courses')
     dessert_items = MenuItem.objects.filter(category='dessert')
@@ -17,15 +17,11 @@ def menu(request):
         'dessert_items': dessert_items,
         'red_wine_items': red_wine_items,
         'white_wine_items': white_wine_items,
+
     }
+    # Pass the menu items to the template
     return render(request, 'menu.html', context)
 
-# def menu(request):
-#     # Retrieve all menu items from the database
-#     menu_items = MenuItem.objects.all()
-
-#     # Pass the menu items to the template as a context variable
-#     return render(request, 'menu.html', {'menu_items': menu_items})
 
 def wine_list(request):
     # Retrieve all wines from the database
