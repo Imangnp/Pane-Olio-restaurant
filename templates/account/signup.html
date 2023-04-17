@@ -1,21 +1,62 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+<!-- Header Home Page -->
+<section class="header-bg">
+  <div class="background-light">
+    <div class="header-title text-center px-3">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <!-- Header Text -->
+          <div class="col-lg-5 d-flex justify-content-center">
+            <div class="text-white">
+              <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+              <h3>Restaurant & Wine Bar</h3>
+              <p>Kungsgatan 1, Stockholm</p>
+            </div>
+          </div>
+          <!-- Sign Up Form Container -->
+          <div class="col-lg-5">
+            <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+              <div class="text-center">
+                <h3 class="mb-lg-0 pb-3">{% trans "Sign Up" %}</h3>
+                  <p class="text-black-50">{% blocktrans %}Welcome! Please enter your details to sign up.
+                    Already have an account?
+                    Then please <a href="{{ login_url }}">Log In</a>.
+                    {% endblocktrans %}</p>
+              </div>
+              <div class="row">
+                  <form class="col-form-label signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                    <div class="col-md-12 mt-3">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      {% if redirect_field_value %}
+                      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                      {% endif %}
+                    </div>
+                    
+                    <!-- Sign Up Button -->
+                    <div class="row">
+                      <div class="col-sm-12 d-grid">
+                        <button class="btn btn-danger" type="submit">{% trans "Sign Up" %}</button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {% endblock %}

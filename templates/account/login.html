@@ -13,6 +13,7 @@
     <div class="header-title text-center px-3">
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-around gy-4">
+          <!-- Header Text -->
           <div class="col-lg-5 d-flex justify-content-center">
             <div class="text-white">
               <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
@@ -20,7 +21,7 @@
               <p>Kungsgatan 1, Stockholm</p>
             </div>
           </div>
-
+          <!-- Log In Form Container -->
           <div class="col-lg-5">
             <div class="h-100 p-5 text-center reserve-bg-light mb-5">
               <div class="text-center">
@@ -30,7 +31,7 @@
                   <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
               </div>
               <div class="row">
-                  <form class="col-form-label" method="POST" action="{% url 'account_login' %}">
+                  <form class="login col-form-label" method="POST" action="{% url 'account_login' %}">
                     <div class="col-md-12 mt-3">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -38,13 +39,13 @@
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
                     </div>
-                    
+                    <!-- Reset Password -->
                     <div class="row mb-3">
                       <div class="col-sm-6">
                         <a href="{% url 'account_reset_password' %}" class="button secondaryAction">{% trans "Forgot Password?" %}</a>
                       </div>
                     </div>
-          
+                    <!-- Log In Button -->
                     <div class="row">
                       <div class="col-sm-12 d-grid">
                         <button type="submit" class="btn btn-danger">{% trans "log In" %}</button>
@@ -53,7 +54,6 @@
                   </form>
               </div>
             </div>
-
           </div>
           
         </div>
