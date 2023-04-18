@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Header 404 Page -->
+<section class="header-bg">
+    <div class="background-light">
+        <div class="header-title text-center px-3">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-around gy-4">
+                    <!-- Header Text -->
+                    <div class="col-lg-5 d-flex justify-content-center">
+                        <div class="text-white">
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <h3>Restaurant & Wine Bar</h3>
+                            <p>Kungsgatan 1, Stockholm</p>
+                        </div>
+                    </div>
+                    <!-- 404 Container -->
+                    <div class="col-lg-5">
+                        <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+                            <h1 class="display-6 text-center p-3 mb-4 mt-3 border-bottom reseve-title">404</h1>
+                            <p class="text-black-50">Oops, page not found! This page might have been moved or deleted.</p>
+                            <div class="d-grid gap-2 mt-5">
+                                <button class="btn btn-danger text-uppercase text-space" type="button" href="{% url 'home' %}">Back to Home</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+{%endblock%}
