@@ -4,7 +4,7 @@ from .models import MenuItem, WineList
 # Create your views here.
 
 def menu(request):
-    # Devide menu Items to diffrent categories
+    # Divide menu Items to diffrent categories
     antipasti_items = MenuItem.objects.filter(category='antipasti')
     main_courses_items = MenuItem.objects.filter(category='main_courses')
     dessert_items = MenuItem.objects.filter(category='dessert')

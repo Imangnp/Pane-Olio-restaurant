@@ -11,9 +11,9 @@ class MenuItemAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     
 
-@admin.register(WineList)
-class WineListAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'price_per_glass', 'price_per_bottle', 'description')
-    list_filter = ('category',)
-    search_fields = ('name', 'category')
+# @admin.register(WineList)
+# class WineListAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'category', 'price_per_glass', 'price_per_bottle', 'description')
+#     list_filter = ('category',)
+#     search_fields = ('name', 'category')
 
