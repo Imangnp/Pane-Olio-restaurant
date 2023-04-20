@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!-- Header Reservation Page -->
+<section class="reserve-bg">
+    <div class="background-light">
+        <div class="header-title text-center px-3">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-around gy-4">
+                    <!-- Header Text -->
+                    <div class="col-lg-5 d-flex justify-content-center">
+                        <div class="text-white">
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <h3>Restaurant & Wine Bar</h3>
+                            <p>Kungsgatan 1, Stockholm</p>
+                        </div>
+                    </div>
+                    <!-- Reservation Form Container -->
+                    <div class="col-lg-5">
+                        <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+                          <h2 class="display-6 text-center border-bottom reseve-title">Make A Reservation</h2>
+                          <p class="text-black-50">To Be able book a table, please <a href="{% url 'account_login' %}">Log In</a>.
+                              If you have not created an account yet, then please
+                              <a href="{% url 'account_signup' %}">sign up</a> first.</p>
+
+                            <form class="row g-3" action="" method="POST">
+                                {%  csrf_token  %}
+                                <div class="col-md-6">
+                                  {{ form.name }}
+                                </div>
+                                <div class="col-md-6">
+                                  {{ form.phone }}
+                                </div>
+                                <div class="col-md-6">
+                                  {{ form.email }}
+                                </div>
+                                <div class="col-md-6">
+                                  {{ form.date }}
+                                </div>
+                                <div class="col-md-6">
+                                  {{ form.people }}
+                                </div>
+                                <div class="col-md-6">
+                                  {{ form.time }}
+                                </div>
+                                <div class="col-md-12">
+                                    {{ form.message }}
+                                </div>
+
+                                {% if user.is_authenticated %}
+                                <div class="d-grid gap-2 mt-5">
+                                  <button class="btn btn-danger text-uppercase text-space" type="submit">Check Availability</button>
+                                </div>
+                                {% else %}
+                                <div class="d-grid gap-2 mt-5">
+                                  <a href="{% url 'account_login' %}" class="btn btn-danger text-uppercase text-space">Log In</a>
+                                </div>
+
+                                {% endif %}
+
+                          </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+
+{%endblock%}

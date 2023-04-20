@@ -31,7 +31,7 @@
                     Then please <a href="{{ login_url }}">Log In</a>.
                     {% endblocktrans %}</p>
               </div>
-              <div class="row">
+              
                   <form class="col-form-label signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                     <div class="col-md-12 mt-3">
                       {% csrf_token %}
@@ -40,11 +40,52 @@
                       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                       {% endif %}
                     </div>
+
+                    
+                    <!-- {{ form.non_field_errors | safe }}
+                    <input type="hidden" name="remember" value="true" />
+                    <div>
+                      <div class="mb-3">
+                        {{ form.username.errors | safe }}
+                        <label for="password2" class="">Your Name</label>
+                        <div class=" row col-sm-12">
+                          {{ form.username }}
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        {{ form.email.errors | safe }}
+                        <label for="email" class="">Email</label>
+                        <div class=" row col-sm-12">
+                          {{ form.email }}
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        {{ form.phone.errors | safe }}
+                        <label for="password2" class="">Phone</label>
+                        <div class=" row col-sm-12">
+                          {{ form.phone }}
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        {{ form.password1.errors | safe }}
+                        <label for="id_password1" class="">Password</label>
+                        <div class=" row col-sm-12">
+                          {{ form.password1 }}
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        {{ form.password2.errors | safe }}
+                        <label for="password2" class="">Password</label>
+                        <div class=" row col-sm-12">
+                          {{ form.password2 }}
+                        </div>
+                      </div> -->
+                   
                     
                     <!-- Sign Up Button -->
                     <div class="row">
                       <div class="col-sm-12 d-grid">
-                        <button class="btn btn-danger" type="submit">{% trans "Sign Up" %}</button>
+                        <button class="btn btn-danger text-uppercase text-space" type="submit">{% trans "Sign Up" %}</button>
                       </div>
                     </div>
                   </form>

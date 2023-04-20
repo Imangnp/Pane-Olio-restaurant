@@ -24,9 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('aboutus/', views.aboutus, name='aboutus'),
-    path('reserve/', views.reserve, name='reserve'),
     path('menu/', include('menu.urls')),
     path('accounts/', include('allauth.urls')),
+    path('reservation/', include('booking_system.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

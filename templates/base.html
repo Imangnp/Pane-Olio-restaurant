@@ -49,7 +49,7 @@
                 <a class="nav-link" href="{% url 'menu:menu_items' %}">MENU</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'reserve' %}">RESERVE</a>
+                <a class="nav-link" href="{% url 'booking_system:reservation' %}">RESERVE</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#contact">CONTACT</a>
@@ -80,88 +80,6 @@
     {% endblock content %}
 
 
-    <!-- Reservation Form -->
-    <!-- <section class="Reserve-bg">
-    <div class="container pt-5 py-5">
-      <div class="row">
-        <div class="container" data-aos="fade-up">
-          <div class="row justify-content-around gy-4">
-            <div class="col-lg-5 d-flex flex-column justify-content-center">
-              <h4 class="h3-32">The best italian restaurant in town is waiting for you. </h4>
-              <h6 class="mt-3">Make a reservation now</h6>
-              <h6>Or call us  at  855 100 4444</h6>
-            </div>
-
-            <div class="col-lg-5">
-              <div class="h-100 p-5 text-center reserve-bg-light mb-5">
-                <h2 class="display-6 text-center p-3 mb-4 mt-3 border-bottom reseve-title">Make A Reservation</h2>
-                  <form class="row g-3">
-                    <div class="col-md-6">
-                      <input type="text" placeholder="Your Name" class="form-control" id="name">
-                    </div>
-                    <div class="col-md-6">
-                      <input type="text" placeholder="Phone" class="form-control" id="phone">
-                    </div>
-                    <div class="col-md-6">
-                      <input type="email" placeholder="Email" class="form-control" id="email">
-                    </div>
-                    <div class="col-md-6">
-                      <input type="text" placeholder="Date" class="form-control" id="input">
-                    </div>
-                    <div class="col-md-6">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>People</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                      </select>
-                    </div>
-                    <div class="col-md-6">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Time</option>
-                        <option value="12">12:00</option>
-                        <option value="12">12:30</option>
-                        <option value="13">13:00</option>
-                        <option value="13">13:30</option>
-                        <option value="14">14:00</option>
-                        <option value="14">14:30</option>
-                        <option value="15">15:00</option>
-                        <option value="15">15:30</option>
-                        <option value="16">16:00</option>
-                        <option value="16">16:30</option>
-                        <option value="17">17:00</option>
-                        <option value="17">17:30</option>
-                        <option value="18">18:00</option>
-                        <option value="18">18:30</option>
-                        <option value="19">19:00</option>
-                        <option value="19">19:30</option>
-                        <option value="20">20:00</option>
-                        <option value="20">20:30</option>
-                        <option value="20">21:00</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12">
-                      <textarea placeholder="message" class="form-control" id="message"></textarea>
-                    </div>
-                    <div class="d-grid gap-2 mt-5">
-                        <button class="btn btn-danger text-uppercase text-space" type="button">Check Availability</button>
-                    </div>
-                  </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section> -->
-
     <!-- FOOTER -->
     <footer id="contact" class="footer-bg">
       <div class="container">
@@ -177,7 +95,7 @@
               <h4 class="p-3 mb-4 mt-3 text-danger">Opening Hours</h3>
               <h6 class="mb-3">Monday to Sunday</h6>
               <h4 class="ophr-title mb-3">11:00 to 22:00</h3>
-              <a href="{% url 'reserve' %}" type="button" class="btn btn-outline-danger mt-3">Make A Reservation</a>
+              <a href="{% url 'booking_system:reservation' %}" type="button" class="btn btn-outline-danger mt-3">Make A Reservation</a>
           </div>
       
           <div class="col-md-3 text-center mb-3">

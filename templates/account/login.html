@@ -34,21 +34,25 @@
                   <form class="login col-form-label" method="POST" action="{% url 'account_login' %}">
                     <div class="col-md-12 mt-3">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <div class="mb-3">
+                      {{ form.as_p }}
+                    </div>
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
                     </div>
+      
                     <!-- Reset Password -->
                     <div class="row mb-3">
                       <div class="col-sm-6">
-                        <a href="{% url 'account_reset_password' %}" class="button secondaryAction">{% trans "Forgot Password?" %}</a>
+                        <a href="{% url 'account_reset_password' %}" class="text-danger">{% trans "Forgot Password?" %}</a>
                       </div>
                     </div>
+
                     <!-- Log In Button -->
                     <div class="row">
                       <div class="col-sm-12 d-grid">
-                        <button type="submit" class="btn btn-danger">{% trans "log In" %}</button>
+                        <button type="submit" class="btn btn-danger text-uppercase text-space">{% trans "log In" %}</button>
                       </div>
                     </div>
                   </form>
