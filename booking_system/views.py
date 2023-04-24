@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .models import Reservation, Table
 from .forms import ReservationForm
 
@@ -7,57 +8,54 @@ from .forms import ReservationForm
 
 
 
-
-def is_table_available(date, time, people):
+# Checks if a table is available for a given number of people, date, time
+def is_table_available(people, booking_date, booking_time):
     """
     Check if a table is available for the given number of people
     """
-    if table_number == '101':
-        return people_count <= 3
-    elif table_number == '102':
-        return people_count <= 2
-    elif table_number == '103':
-        return people_count <= 2
-    elif table_number == '104':
-        return people_count <= 2
-    elif table_number == '201':
-        return people_count <= 5
-    elif table_number == '202':
-        return people_count <= 4
-    elif table_number == '203':
-        return people_count <= 4
-    elif table_number == '204':
-        return people_count <= 4
-    else:
-        return False
+    table_with_ge_capacity = Table.objects.filter(capacity__gte=people)
+    all_reservations_same_time = Reservation.objects.filter(date=booking_date).filter(time=booking_time).filter(people=people)
+    if len(table_with_ge_capacity) > 0:
+        if len(all_reservations_same_time) == 0:
+            return table_with_ge_capacity[0]
+
+        for each_table in table_with_ge_capacity:
+            for each_reservation in all_reservations_same_time:
+                print(each_table.table_number, each_reservation.table.table_number)
+                if each_table.table_number != each_reservation.table.table_number:
+                    return each_table
+    return None
 
 
+# Handles the reservation form submission
 def reservation(request):
     if request.method == 'POST':
         booking_form = ReservationForm(request.POST)
+        people_count = booking_form['people'].value()
+        
+        """ 
+        Check if the booking form is valid and retrieve the number of people, 
+        booking date, and booking time if it is
+        """
         if booking_form.is_valid():
-            table_number = booking_form.cleaned_data['table_number']
             people_count = booking_form.cleaned_data['people']
+            booking_date = booking_form.cleaned_data['date']
+            booking_time = booking_form.cleaned_data['time']
             # Check if a table is available
-            if is_table_available(table_number, people_count):
+            possible_table = is_table_available(people_count, booking_date, booking_time)
+            if possible_table:
                 booking = booking_form.save(commit=False)
                 booking.is_confirmed = True
+                booking.table = possible_table
                 booking.save()
-                return redirect('reserve_success')
+                return render(request, 'reserve_success.html')
             else:
-                return redirect('reserve_failed')
+                return render(request, 'reserve_failed.html')
+        else:
+            # if the form is not valid, display the error message and the form again
+            context = {'form': booking_form}
+            return render(request, 'reservation.html', context)
     else:
-        form = ReservationForm()
-
-    context = {'form': form}
-    # Display Reservation page
-    return render(request, 'reservation.html', context)
-
-
-def reserve_success(request):
-
-    return render(request, 'reserve_success.html')
-
-def reserve_failed(request):
-
-    return render(request, 'reserve_failed.html')
+        context = {'form': ReservationForm()}
+        # Display Reservation page
+        return render(request, 'reservation.html', context)

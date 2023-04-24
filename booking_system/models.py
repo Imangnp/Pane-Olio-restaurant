@@ -14,8 +14,11 @@ class Table(models.Model):
         (3, '3 People'),
         (4, '4 People'),
         (5, '5 People'),
+        (8, '8 People'),
+        (10, '10 People'),
     )
-
+    
+    id = models.AutoField(primary_key=True)
     table_number = models.CharField(max_length=50, unique=True)
     capacity = models.IntegerField(choices=TABLE_CAPACITY_CHOICES)
 

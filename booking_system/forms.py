@@ -24,7 +24,8 @@ TIME_CHOICES = (
     ('21:00', '21:00'),
 )
 
-PEOPLE_CHOICES = [    ('1', '1 person'),
+PEOPLE_CHOICES = [    
+    ('1', '1 person'),
     ('2', '2 people'), 
     ('3', '3 people'),
     ('4', '4 people'), 
@@ -61,9 +62,9 @@ class ReservationForm(forms.ModelForm):
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                'placeholder' :'Email',
+                'placeholder': 'Email',
                 'class': 'form-control',
-                         'required': True
+                'required': True
             }
         )
     )
@@ -112,8 +113,6 @@ class ReservationForm(forms.ModelForm):
         required=False
     )
 
-
     class Meta:
         model = Reservation
-        fields = '__all__'
-
+        fields = ('name', 'phone', 'email', 'date', 'people', 'time', 'message')
