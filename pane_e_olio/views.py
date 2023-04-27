@@ -12,8 +12,3 @@ def aboutus(request):
 
     # Render the "about-us.html" template
     return render(request, 'about-us.html')
-
-
-def reserve(request):
-    # Render the "reserve.html" template
-    return render(request, 'reserve.html')

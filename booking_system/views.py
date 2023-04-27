@@ -130,3 +130,10 @@ def reservation(request):
         context = {'form': ReservationForm()}
         # Display Reservation page
         return render(request, 'reservation.html', context)
+
+
+
+def manage_reserve(request):
+
+    # Render the "manage_reserve.html" template
+    return render(request, 'manage_reserve.html')

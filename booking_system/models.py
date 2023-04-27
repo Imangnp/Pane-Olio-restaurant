@@ -39,6 +39,7 @@ class Reservation(models.Model):
     date = models.DateField()
     people = models.IntegerField()
     time = models.TimeField()
+    message = models.CharField(max_length=2550)
     register_time = models.DateTimeField(default=timezone.now)
 
 
