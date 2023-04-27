@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime, timedelta, time, datetime
 from .models import Reservation, Table
 from .forms import ReservationForm
@@ -7,9 +7,6 @@ from django.db.models.functions import Concat
 from django.db.models import Value, Q  # Import the Value and Q classes for queries
 from django.db import models
 
-
-
-# Create your views here.
 
 
 
@@ -26,7 +23,7 @@ def is_table_available(people, booking_date, booking_time):
 
     # Make the datetime timezone-aware, using the current timezone
     aware_given_date_time = timezone.make_aware(given_date_time, timezone.get_current_timezone())
-    
+
     # Convert the two-hour-earlier datetime to an aware datetime object using the current timezone
     aware_two_hours_before_given_date_time = timezone.make_aware(two_hours_before_given_date_time, timezone.get_current_timezone())
 
@@ -44,55 +41,22 @@ def is_table_available(people, booking_date, booking_time):
 
     # Debugging: Print the number of reservations that overlap with the given date and time
     print(all_reservations_same_time.count())
-    
+
     if table_with_ge_capacity.count() > 0:
         if all_reservations_same_time.count() == 0:
             return table_with_ge_capacity[0]
-        
+
         # Exclude reserved tables and return the first available table
         available_tables = table_with_ge_capacity.exclude(id__in=all_reservations_same_time.values_list('table_id', flat=True)).order_by('capacity')
         if available_tables.count() == 0:
             # If all tables are reserved, return None
             return None
-        
+
         return available_tables[0]
 
     # If no tables with required capacity found, return None
     return None
 
-     
-
-
-# def is_table_available(people, booking_date, booking_time):
-#     # Get all tables with a capacity greater than or equal to the requested number of people
-#     tables_with_ge_capacity = Table.objects.filter(capacity__gte=people)
-
-#     # Get all reservations for the requested date and time
-#     reservations_same_time = Reservation.objects.filter(date=booking_date, time=booking_time)
-
-#     # Check which tables have already been booked for 2 hours
-#     booked_tables = []
-#     for reservation in reservations_same_time:
-#         if (reservation.end_time - reservation.start_time).seconds // 3600 >= 2:
-#             booked_tables.append(reservation.table)
-
-#     # Iterate over all tables with sufficient capacity
-#     for table in tables_with_ge_capacity:
-#         if table in booked_tables:
-#             continue
-#         if not Reservation.objects.filter(date=booking_date, time=booking_time, table=table).exists():
-#             # If the table is available, return it
-#             return table
-
-#     # If no table with sufficient capacity is available for the requested time, check if another table is available
-#     for reservation in reservations_same_time:
-#         if reservation.table in booked_tables:
-#             continue
-#         for table in tables_with_ge_capacity:
-#             if table in booked_tables:
-#                 continue
-#             if not Reservation.objects.filter(date=booking_date, time=booking_time, table=table).exists():
-#                 return table
 
 
 # Handles the reservation form submission
@@ -100,8 +64,8 @@ def reservation(request):
     if request.method == 'POST':
         booking_form = ReservationForm(request.POST)
         people_count = booking_form['people'].value()
-        
-        """ 
+
+        """
         Check if the booking form is valid and retrieve the number of people, 
         booking date, and booking time if it is
         """
@@ -136,4 +100,28 @@ def reservation(request):
 def manage_reserve(request):
 
     # Render the "manage_reserve.html" template
-    return render(request, 'manage_reserve.html')
+    reservations = Reservation.objects.all()
+    context = {'reservations': reservations}
+    return render(request, 'manage_reserve.html', context)
+
+
+
+def change_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(id=reservation_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('manage_reserve')
+    else:
+        form = ReservationForm(instance=reservation)
+    context = {'form': form}
+    return render(request, 'change_reservation.html', context)
+
+def cancle_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(id=reservation_id)
+    if request.method == 'POST':
+        reservation.delete()
+        return redirect('manage_reserve')
+    context = {'reservation': reservation}
+    return render(request, 'cancle_reservation.html', context)

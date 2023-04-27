@@ -1,15 +1,13 @@
 from django.db import models
 from django.utils import timezone
-
-# Create your models here.
-
 from django.contrib.auth.models import User
 
 
 
-
-
 class Table(models.Model):
+    """
+    Available tables with a specific seating capacity
+    """
     TABLE_CAPACITY_CHOICES = (
         (2, '2 People'),
         (3, '3 People'),
@@ -18,7 +16,7 @@ class Table(models.Model):
         (8, '8 People'),
         (10, '10 People'),
     )
-    
+
     id = models.AutoField(primary_key=True)
     table_number = models.CharField(max_length=50, unique=True)
     capacity = models.IntegerField(choices=TABLE_CAPACITY_CHOICES)
@@ -32,6 +30,7 @@ class Reservation(models.Model):
     """
     Model representing a form, which should be filled to book a table.
     """
+
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -39,7 +38,7 @@ class Reservation(models.Model):
     date = models.DateField()
     people = models.IntegerField()
     time = models.TimeField()
-    message = models.CharField(max_length=2550)
+    message = models.CharField(max_length=2500, default=' ')
     register_time = models.DateTimeField(default=timezone.now)
 
 

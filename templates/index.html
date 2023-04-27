@@ -4,6 +4,7 @@
 
     <!-- Header Home Page -->
     <section class="header-bg">
+        <!-- To make the background darker -->
         <div class="background-light">
             <div class="text-white header-title text-center">
                 <img class="my-4" width="21%" src="{{ MEDIA_URL }}logo.svg" alt="Logo image in the header">
@@ -22,9 +23,15 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center mt-5 mb-5">
             <p class="text-danger text-spac">Pane e olio Restaurant</p>
             <h3 class="mt-3">About Us</h3>
-            <p class="lh-lg mt-5">Pane e Olio is an authentic Italian restaurant located in the heart of Stockholm. Our mission is to provide our guests with a true taste of Italy through fresh, authentic cuisine and carefully selected wines. Our chefs use only the finest, locally sourced ingredients to create delicious dishes that are bursting with flavor.
-                We believe that good food should be accompanied by good wine, which is why we have an extensive wine list featuring a variety of Italian wines to complement our menu
-                At Pane e Olio, we pride ourselves on providing a warm and welcoming atmosphere where our guests can enjoy a relaxing and memorable dining experience. </p>
+            <p class="lh-lg mt-5">Pane e Olio is an authentic Italian restaurant located in the 
+                heart of Stockholm. Our mission is to provide our guests with a true taste of Italy 
+                through fresh, authentic cuisine and carefully selected wines. Our chefs use only 
+                the finest, locally sourced ingredients to create delicious dishes that are bursting with flavor.
+                We believe that good food should be accompanied by good wine, which is why we have an 
+                extensive wine list featuring a variety of Italian wines to complement our menu
+                At Pane e Olio, we pride ourselves on providing a warm and welcoming atmosphere where 
+                our guests can enjoy a relaxing and memorable dining experience.
+             </p>
                 <a class="text-danger text-spac" href="{% url 'aboutus' %}">LEARN MORE ></a>
             </div>
             <div class="col-lg-6 mt-5 mb-5">
@@ -36,47 +43,51 @@
     <!-- Chef recommended -->
     <section class="chef-bg">
         <div class="container text-center pt-5 py-5">
-        <div class="row">
-            <div class="pb-3">
-            <h3>Chef Recommends</h3>
-            <h6 class="text-uppercase text-spac pt-3">Our most loved</h6>
-            </div>
-            <div class="col-md-4 pt-3">
-            <div class="card text-bg-dark">
-                <img src="{{ MEDIA_URL }}antipasto.png" class="" alt="reccomended antipasto">
-                <div class="align-items-end food-img-overlay">
-                <p class="col-12 card-text"><small>Antipasto</small></p>
-                <h5 class="col-12 pb-3">Bruschette classiche</h5>
-                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+            <div class="row">
+                <div class="pb-3">
+                    <h3>Chef Recommends</h3>
+                    <h6 class="text-uppercase text-spac pt-3">Our most loved</h6>
+                </div>
+                 <!-- Starter -->
+                <div class="col-md-4 pt-3">
+                    <div class="card text-bg-dark">
+                        <img src="{{ MEDIA_URL }}antipasto.png" class="" alt="reccomended antipasto">
+                        <div class="align-items-end food-img-overlay">
+                            <p class="col-12 card-text"><small>Antipasto</small></p>
+                            <h5 class="col-12 pb-3">Bruschette classiche</h5>
+                            <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Main Course -->
+                <div class="col-md-4 pt-3">
+                    <div class="card text-bg-dark">
+                        <img src="{{ MEDIA_URL }}pasta.png" class="" alt="reccomended course">
+                        <div class="align-items-end food-img-overlay">
+                        <p class="col-12 card-text"><small>Main Course</small></p>
+                        <h5 class="col-12 pb-3">Arrabiata con salsiccia</h5>
+                        <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Wine -->
+                <div class="col-md-4 pt-3">
+                    <div class="card text-bg-dark">
+                        <img src="{{ MEDIA_URL }}wine.png" class="" alt="reccomended wine">
+                        <div class="align-items-end food-img-overlay">
+                        <p class="col-12 card-text"><small>Wine</small></p>
+                        <h5 class="col-12 pb-3">Chianti Classico</h5>
+                        <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="col-md-4 pt-3">
-            <div class="card text-bg-dark">
-                <img src="{{ MEDIA_URL }}pasta.png" class="" alt="reccomended course">
-                <div class="align-items-end food-img-overlay">
-                <p class="col-12 card-text"><small>Main Course</small></p>
-                <h5 class="col-12 pb-3">Arrabiata con salsiccia</h5>
-                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-4 pt-3">
-            <div class="card text-bg-dark">
-                <img src="{{ MEDIA_URL }}wine.png" class="" alt="reccomended wine">
-                <div class="align-items-end food-img-overlay">
-                <p class="col-12 card-text"><small>Wine</small></p>
-                <h5 class="col-12 pb-3">Chianti Classico</h5>
-                <div class="col align-self-center" style="border-bottom: 1px solid #ffffff63;"></div>
-                </div>
-            </div>
-            </div>
-        </div>
         </div>
     </section>
 
     <!-- Opening Hours -->
     <section class="cover-container opening-bg">
+        <!-- To make the background darker -->
         <div class="background-light">
             <div class="text-white p-5">
                 <div class="container">
@@ -87,20 +98,26 @@
                                 <hr>
                                 <h6 class="mt-5">Monday to Sunday</h6>
                                 <h4 class="text-white-50 mt-3">11:00 to 23:00</h3>
+                                <!-- Reservation button -->
                                 <a href="Reservation.html" type="button" class="btn btn-outline-danger mt-5">Make A Reservation</a>
-                                <p class="text-white-50 mt-5">You can also call: <span class="text-danger">855 100 4444</span>&nbsp;to make a reservation.</p>
+                                <p class="text-white-50 mt-5">You can also call: 
+                                    <span class="text-danger">855 100 4444</span>
+                                    &nbsp;to make a reservation.
+                                </p>
                                 <p class="text-white-50 mt-3">Kungsgatan 1, Stockholm - Sweden</p>
                                 </div>
                         </div>
+                        <!-- Guest review -->
                         <div class="col-md-7">
                             <div class="quotation p-5 mt-5">
                                 <p class="mt-5 fst-italic">
                                     <i class="bi bi-quote quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                    Great Italian restaurant - friendly staff, perfect ambiance, delicious food with authentic ingredients, 
+                                    impressive wine selection. Highly recommended for an exceptional dining experience.
                                     <i class="bi bi-quote quote-icon-right"></i>
                                 </p>
                                 <div class="row mt-5">
+                                     <!-- a Random image for Guest -->
                                     <div class="col-md-1">
                                         <img src="{{ MEDIA_URL }}customer.png" class="float-start" alt="user">
                                     </div>

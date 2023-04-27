@@ -26,8 +26,8 @@
                             {% for reservation in Reservations %}
                             <h5 class="text-uppercase text-center">{{ reservation.name }}</h5>
                             <h6 class="text-black-50 mb-2">{{ reservation.date }} at {{ reservation.time }}</h6>
-                            <h6 class="text-black-50 mb-2">Number of people:{{ reservation.people }}</h6>
-                            <h6 class="text-black-50 mb-2">Special Request:{{ reservation.message }}</h6>
+                            <h6 class="text-black-50 mb-2">Number of people: {{ reservation.people }}</h6>
+                            <h6 class="text-black-50 mb-2">Special Request: {{ reservation.message }}</h6>
                           </div>
                             {%endfor%}
                             <div class="row">

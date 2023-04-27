@@ -12,7 +12,7 @@
                     <!-- Header Text -->
                     <div class="col-lg-5 d-flex justify-content-center">
                         <div class="text-white">
-                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" alt="Logo">
                             <h3>Restaurant & Wine Bar</h3>
                             <p>Kungsgatan 1, Stockholm</p>
                         </div>
@@ -23,7 +23,7 @@
                           <h3 class="display-6 text-center border-bottom reseve-title">Sorry!</h3>
                           <p class="text-black-50">In this time we are fully booked! 
                             Would you like to reserve fo another time or another day?</p>
-
+                            <!-- Button to go Home -->
                             <div class="d-grid gap-2 mt-5">
                                 <a href="{% url 'booking_system:reservation' %}" class="btn btn-danger text-uppercase text-space">Reserve</a>
                             </div>

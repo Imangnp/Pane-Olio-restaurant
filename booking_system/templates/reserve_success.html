@@ -12,7 +12,7 @@
                     <!-- Header Text -->
                     <div class="col-lg-5 d-flex justify-content-center">
                         <div class="text-white">
-                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" alt="Logo">
                             <h3>Restaurant & Wine Bar</h3>
                             <p>Kungsgatan 1, Stockholm</p>
                         </div>
@@ -22,7 +22,7 @@
                         <div class="h-100 p-5 text-center reserve-bg-light mb-5">
                           <h3 class="display-6 text-center border-bottom reseve-title">Thanks for Reservation!</h3>
                           <p class="text-black-50">Your reservation has been successful!</p>
-
+                            <!-- Button to go Home -->
                             <div class="d-grid gap-2 mt-5">
                                 <a href="{% url 'home' %}" class="btn btn-danger text-uppercase text-space">Done</a>
                             </div>
