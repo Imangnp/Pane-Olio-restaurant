@@ -74,10 +74,10 @@
                 <!-- Wine -->
                 <div class="row">
                     <div class="text-center mb-5 gy-4">
-                        <h3>Wine</h3>
+                        <h3>Drinks</h3>
                     </div>
                     <!-- RED Wine -->
-                    <h4 class="text-center mb-5">Red</h4>
+                    <h4 class="text-center mb-5">Red wine</h4>
                     <div class="col-md-12">
                         <div class="row">
                             {% for item in red_wine_items %}
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <!-- WHITE Wine -->
-                    <h4 class="text-center mb-5">White</h4>
+                    <h4 class="text-center mb-5">White wine</h4>
                     <div class="col-md-12">
                         <div class="row">
                             {% for item in white_wine_items %}
@@ -112,6 +112,40 @@
                             {% endfor %}
                         </div>
                     </div>
+                </div>
+
+                <!-- Beers -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h4>Beers</h4>
+                    </div>
+                    {% for item in beers_items %}
+                    <div class="col-md-6">
+                        <div class="m3">
+                            <p class="mb-lg-0">{{ item.name }}
+                                <span class="text-danger float-r">...........................................................  <span>{{ item.price }} kr </span></span>
+                                <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Soft Drinks -->
+                <div class="row">
+                    <div class="text-center mb-5 gy-4">
+                    <h4>Soft Drinks</h4>
+                    </div>
+                    {% for item in soft_drinks_items %}
+                    <div class="col-md-6">
+                        <div class="m3">
+                            <p class="mb-lg-0">{{ item.name }}
+                                <span class="text-danger float-r">...........................................................  <span>{{ item.price }} kr </span></span>
+                                <p class="text-black-50 fst-italic">{{ item.description }}</p>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
                 
 

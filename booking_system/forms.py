@@ -3,29 +3,6 @@ from .models import Reservation
 from datetime import datetime, timedelta, time, date
 
 
-TIME_CHOICES = [
-    ('12:00', '12:00 PM'),
-    ('12:30', '12:30 PM'),
-    ('13:00', '01:00 PM'),
-    ('13:30', '01:30 PM'),
-    ('14:00', '02:00 PM'),
-    ('14:30', '02:30 PM'),
-    ('15:00', '03:00 PM'),
-    ('15:30', '03:30 PM'),
-    ('16:00', '04:00 PM'),
-    ('16:30', '04:30 PM'),
-    ('17:00', '05:00 PM'),
-    ('17:30', '05:30 PM'),
-    ('18:00', '06:00 PM'),
-    ('18:30', '06:30 PM'),
-    ('19:00', '07:00 PM'),
-    ('19:30', '07:30 PM'),
-    ('20:00', '08:00 PM'),
-    ('20:30', '08:30 PM'),
-    ('21:00', '09:00 PM'),
-]
-
-
 
 PEOPLE_CHOICES = [    
     ('1', '1 person'),
@@ -41,16 +18,59 @@ PEOPLE_CHOICES = [
 ]
 
 
-class DateInput(forms.DateInput):
-    '''
-    This class method is nesessary to assist with providing
-    the widgets of the date field in the booking form with a
-    calendar view for the User
-    '''
-    input_type = 'date'
+TIME_CHOICES = [
+    ('12:00', '12:00'),
+    ('12:30', '12:30'),
+    ('13:00', '13:00'),
+    ('13:30', '13:30'),
+    ('14:00', '02:00'),
+    ('14:30', '02:30'),
+    ('16:00', '16:00'),
+    ('16:30', '16:30'),
+    ('17:00', '17:00'),
+    ('17:30', '17:30'),
+    ('18:00', '18:00'),
+    ('18:30', '18:30'),
+    ('19:00', '19:00'),
+    ('19:30', '19:30'),
+    ('20:00', '20:00'),
+    ('20:30', '20:30'),
+    ('21:00', '21:00'),
+]
+
+
+# Define a function to get the future time choices based on the current time
+def get_future_time():
+    current_time = datetime.now().time()
+    current_hour = current_time.hour
+    current_minute = current_time.minute
+
+    # If current minute is greater than or equal to 30, then set the current time to the next hour
+    if current_minute >= 30:
+        current_hour += 1
+        current_time = time(hour=current_hour, minute=0)
+    else:
+        current_time = time(hour=current_hour, minute=30)
+
+    # Create a list of time choices starting from the current time to the last time in TIME_CHOICES
+    future_time_choices = []
+    for choice in TIME_CHOICES:
+        choice_time = datetime.strptime(choice[0], '%H:%M').time()
+        if choice_time >= current_time:
+            future_time_choices.append(choice)
+    return future_time_choices
 
 
 class ReservationForm(forms.ModelForm):
+    """
+    A form for creating a reservation.
+
+    Displays fields for the user to enter their name, phone number, email, desired date and time,
+    and number of people in their party. The date and time fields are restricted to valid future
+    choices.
+
+    """
+
     name = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -114,7 +134,7 @@ class ReservationForm(forms.ModelForm):
                 'data-min':'now',
             }
         ),
-        choices=TIME_CHOICES
+        choices=get_future_time
     )
 
     message = forms.CharField(
@@ -127,12 +147,6 @@ class ReservationForm(forms.ModelForm):
         ),
         required=False
     )
-
-    # def clean_date(self):
-    #     date = self.cleaned_data['date']
-    #     if date < datetime.date.today():
-    #         raise forms.ValidationError("The date cannot be in the past!")
-    #     return date
     
 
     class Meta:

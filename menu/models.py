@@ -28,27 +28,8 @@ class MenuItem(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
-    """
-    Returns the name of the menu item.
-    """
+    
+    # Returns the name of the menu item.
     def __str__(self):
         return self.name
 
-
-class WineList(models.Model):
-    """
-    Model representing a wine list item.
-    """
-    WINE_CATEGORIES = [
-        ('red_wine', 'Red Wine'),
-        ('white_wine', 'White Wine'),
-    ]
-
-    name = models.CharField(max_length=255)
-    category = models.CharField(max_length=20, choices=WINE_CATEGORIES)
-    description = models.TextField()
-    price_per_glass = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    price_per_bottle = models.DecimalField(max_digits=6, decimal_places=2)
-
-    def __str__(self):
-        return self.name
