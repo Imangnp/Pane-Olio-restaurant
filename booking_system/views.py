@@ -97,31 +97,18 @@ def reservation(request):
 
 
 
-def manage_reserve(request):
+def list_reservations(request):
 
-    # Render the "manage_reserve.html" template
-    reservations = Reservation.objects.all()
-    context = {'reservations': reservations}
-    return render(request, 'manage_reserve.html', context)
+    # Render the "manage_reservations.html" template
+    user_reservations = Reservation.objects.filter(user_id=request.user.id)
+    context = {'user_reservations': user_reservations}
+    return render(request, 'manage_reservations.html', context)
 
 
+def show_reservation_details(request):
 
-def change_reservation(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
-    if request.method == 'POST':
-        form = ReservationForm(request.POST, instance=reservation)
-        if form.is_valid():
-            form.save()
-            return redirect('manage_reserve')
-    else:
-        form = ReservationForm(instance=reservation)
-    context = {'form': form}
-    return render(request, 'change_reservation.html', context)
+    # Render the "reservation_details.html" template
+    user_reservations = Reservation.objects.filter(user_id=request.user.id)
+    context = {'user_reservations': user_reservations}
+    return render(request, 'reservation_details.html', context)
 
-def cancle_reservation(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
-    if request.method == 'POST':
-        reservation.delete()
-        return redirect('manage_reserve')
-    context = {'reservation': reservation}
-    return render(request, 'cancle_reservation.html', context)

@@ -41,6 +41,7 @@ TIME_CHOICES = [
 
 # Define a function to get the future time choices based on the current time
 def get_future_time():
+    today = date.today()
     current_time = datetime.now().time()
     current_hour = current_time.hour
     current_minute = current_time.minute
@@ -54,9 +55,11 @@ def get_future_time():
 
     # Create a list of time choices starting from the current time to the last time in TIME_CHOICES
     future_time_choices = []
+    current_datetime = datetime.combine(today, current_time)
+
     for choice in TIME_CHOICES:
         choice_time = datetime.strptime(choice[0], '%H:%M').time()
-        if choice_time >= current_time:
+        if datetime.combine(today, choice_time) >= current_datetime:
             future_time_choices.append(choice)
     return future_time_choices
 

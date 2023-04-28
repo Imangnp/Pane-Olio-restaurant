@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!-- Header Reservation Page -->
+<section class="reserve-bg">
+    <div class="background-light">
+        <div class="header-title text-center px-3">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-around gy-4">
+                    <!-- Header Text -->
+                    <div class="col-lg-5 d-flex justify-content-center">
+                        <div class="text-white">
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <h3>Restaurant & Wine Bar</h3>
+                            <p>Kungsgatan 1, Stockholm</p>
+                        </div>
+                    </div>
+                    <!-- Reservation Result -->
+                    <div class="col-lg-5">
+                        <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+                            <h3 class="display-6 text-center border-bottom reseve-title pb-5">My Reservations</h3>
+                            
+                            {% for item in user_reservations %}
+                            <div class="row">
+                                <h5 class="text-uppercase text-center">{{ item.name }}</h5>
+                                <h6 class="text-black-50 mb-2">{{ item.date }} at {{ item.time }}</h6>
+                                <h6 class="text-black-50 mb-2">Number of people: {{ item.people }}</h6>
+                                <h6 class="text-black-50 mb-2">Special Request: {{ item.message }}</h6>
+                            </div>
+                            {%endfor%}
+                            
+                            <div class="row">
+                                <div class="d-grid gap-2 mt-5 col-md-12">
+                                    <a href="{% url 'booking_system:list_reservations' %}" class="btn btn-danger">Back</a>
+                                </div>
+                            </div>
+                    </div>
+                      
+                      
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+{%endblock%}

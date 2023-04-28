@@ -32,6 +32,7 @@ class Reservation(models.Model):
     """
 
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.IntegerField()
