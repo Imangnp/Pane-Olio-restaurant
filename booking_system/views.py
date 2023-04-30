@@ -8,8 +8,6 @@ from django.db.models import Value, Q  # Import the Value and Q classes for quer
 from django.db import models
 
 
-
-
 def is_table_available(people, booking_date, booking_time):
     """
     Check if a table is available for the given number of people, date and time
@@ -58,7 +56,6 @@ def is_table_available(people, booking_date, booking_time):
     return None
 
 
-
 # Handles the reservation form submission
 def reservation(request):
     if request.method == 'POST':
@@ -82,6 +79,7 @@ def reservation(request):
                 booking.is_confirmed = True
                 booking.table = possible_table
                 booking.date = booking_date
+                booking.user_id = request.user.id
                 booking.save()
                 return render(request, 'reserve_success.html')
             else:
@@ -97,6 +95,7 @@ def reservation(request):
 
 
 
+
 def list_reservations(request):
 
     # Render the "manage_reservations.html" template
@@ -105,10 +104,33 @@ def list_reservations(request):
     return render(request, 'manage_reservations.html', context)
 
 
-def show_reservation_details(request):
+def reservation_details(request):
+    if request.method == 'POST':
+        selected_reservation_id = request.POST.get('reservation_dropdown')
+        # Render the "reservation_details.html" template
+        reservation = Reservation.objects.get(id=selected_reservation_id)
+        context = {'reservation': reservation}
+        return render(request, 'reservation_details.html', context)
 
-    # Render the "reservation_details.html" template
-    user_reservations = Reservation.objects.filter(user_id=request.user.id)
-    context = {'user_reservations': user_reservations}
-    return render(request, 'reservation_details.html', context)
+
+def edit_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(id=reservation_id)
+    initial_values = {
+        'name': reservation.name,
+        'phone': reservation.phone,
+        'email': reservation.email,
+        'date': reservation.date,
+        'people': reservation.people,
+        'time': reservation.time,
+        'message': reservation.message
+    }
+
+    reservation_form = ReservationForm(initial=initial_values)
+    context = {'form': reservation_form}
+    return render(request, 'edit_reservation.html', context)
+
+
+def cancel_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(id=reservation_id)
+    render(request, 'cancel_reservation.html')
 

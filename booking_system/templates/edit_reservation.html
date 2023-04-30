@@ -29,8 +29,8 @@
                               <a href="{% url 'account_signup' %}">sign up</a> first.</p>
                           {% endif %}
 
-                          <!-- Reservation Form -->
-                          <form class="row g-3" action="" method="POST">
+                            <!-- Reservation Form -->
+                            <form class="row g-3" action="" method="POST">
                                 {%  csrf_token  %}
                                 <div class="col-md-6">
                                   {{ form.name }}
@@ -53,18 +53,10 @@
                                 <div class="col-md-12">
                                     {{ form.message }}
                                 </div>
-                                <!-- Submit button / Log in button if user is not loged in -->
-                                {{ form.errors }} {{ form.non_field_errors }}
-                                {% if user.is_authenticated %}
+                                <!-- Submit button -->
                                 <div class="d-grid gap-2 mt-5">
                                   <button class="btn btn-danger text-uppercase text-space" type="submit">Check Availability</button>
                                 </div>
-                                {% else %}
-                                <div class="d-grid gap-2 mt-5">
-                                  <a href="{% url 'account_login' %}" class="btn btn-danger text-uppercase text-space">Log In</a>
-                                </div>
-
-                                {% endif %}
 
                           </form>
                         

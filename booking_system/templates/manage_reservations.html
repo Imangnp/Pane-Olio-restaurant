@@ -22,9 +22,10 @@
                         <div class="h-100 p-5 text-center reserve-bg-light mb-5">
                           <h3 class="display-6 text-center border-bottom reseve-title">My Reservations</h3>
                           <p class="text-black-50">Choose one of your reservations!</p>
-                          <form action="" method="get">
+                          <form method="POST" action="{% url 'booking_system:reservation_details' %}">
+                            {% csrf_token %}
                             <div class="form-group">
-                              <select class="form-select" name="reservation_id" id="reservation_dropdown">
+                              <select class="form-select" name="reservation_dropdown">
                                 {% for item in user_reservations %}
                                 <option value="{{ item.id }}">{{ item.name }} - {{ item.date }} at {{ item.time }} for {{ item.people }} people</option>
                                 {% endfor %}
@@ -32,15 +33,7 @@
                             </div>
                             <div class="row">
                               <div class="d-grid gap-2 mt-5 col-md-12">
-                                <a id="{{ item.id }}" href="{% url 'booking_system:show_reservation_details' %}" class="btn btn-danger">View Details</a>                                
-                              </div>
-                              <div class="row">
-                                <div class="d-grid gap-2 mt-5 col-md-6">
-                                  <button action="" type="submit" class="btn btn-danger">Edit Reservation</button>
-                                </div>
-                                <div class="d-grid gap-2 mt-5 col-md-6">
-                                  <button action="" type="submit" class="btn btn-danger">Cancel Reservation</button>
-                                </div>
+                                <button type="submit" class="btn btn-danger">View Details</button>
                               </div>
                             </div>
                           </form>
