@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+
+<!-- Header Home Page -->
+<section class="header-bg">
+  <div class="background-light">
+    <div class="header-title text-center px-3">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <!-- Header Text -->
+          <div class="col-lg-5 d-flex justify-content-center">
+            <div class="text-white">
+              <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+              <h3>Restaurant & Wine Bar</h3>
+              <p>Kungsgatan 1, Stockholm</p>
+            </div>
+          </div>
+          <!-- Canceled Reservation message -->
+          <div class="col-lg-5">
+            <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+                <div class="text-center">
+                    <h3 class="mb-lg-0 pb-3">Thank You</h3>
+                    <p class="text-black-50">Your reservation has been canceled successfully!</p>
+                </div>
+                <!-- Button to go Home -->
+                <div class="d-grid gap-2 mt-5">
+                  <a href="{% url 'home' %}" class="btn btn-danger text-uppercase text-space">Done</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

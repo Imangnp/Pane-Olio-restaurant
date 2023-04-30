@@ -132,5 +132,16 @@ def edit_reservation(request, reservation_id):
 
 def cancel_reservation(request, reservation_id):
     reservation = Reservation.objects.get(id=reservation_id)
-    render(request, 'cancel_reservation.html')
+    context = {'reservation': reservation}
+    return render(request, 'cancel_reservation.html', context)
+
+
+def cancel_reservation_msg(request, reservation_id):
+    print('i am now here')
+    reservation = Reservation.objects.get(id=reservation_id)
+    if request.method == 'POST':
+        reservation.delete()
+        return render(request, 'cancel_reservation_msg.html', {'reservation': reservation})
+    else:
+        return render(request, 'cancel_reservation_msg.html', {'reservation': reservation})
 
