@@ -12,7 +12,7 @@
                     <!-- Header Text -->
                     <div class="col-lg-5 d-flex justify-content-center">
                         <div class="text-white">
-                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" />
+                            <img class="my-4" src="{{ MEDIA_URL }}logo.svg" alt="Logo">
                             <h3>Restaurant & Wine Bar</h3>
                             <p>Kungsgatan 1, Stockholm</p>
                         </div>
@@ -20,8 +20,10 @@
                     <!-- Reservation Result -->
                     <div class="col-lg-5">
                         <div class="h-100 p-5 text-center reserve-bg-light mb-5">
+                          {% if user_reservations %}
                           <h3 class="display-6 text-center border-bottom reseve-title">My Reservations</h3>
                           <p class="text-black-50">Choose one of your reservations!</p>
+                          
                           <form method="POST" action="{% url 'booking_system:reservation_details' %}">
                             {% csrf_token %}
                             <div class="form-group">
@@ -33,10 +35,20 @@
                             </div>
                             <div class="row">
                               <div class="d-grid gap-2 mt-5 col-md-12">
+                            
                                 <button type="submit" class="btn btn-danger text-space">View Details</button>
+                              
                               </div>
                             </div>
                           </form>
+
+                          {% else %}
+                          <h3 class="display-6 pt-4 border-bottom">No Reservations found</h3>
+                          <!-- Reservation Button -->
+                          <div class="d-grid pt-3 mt-5 col-md-12">
+                            <a href="{% url 'booking_system:reservation' %}" class="btn btn-danger text-space">Make a Reservation</a>
+                          </div>
+                          {% endif %}
                         </div>
                     </div>
                 </div>

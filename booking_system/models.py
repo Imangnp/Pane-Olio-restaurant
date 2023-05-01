@@ -42,6 +42,11 @@ class Reservation(models.Model):
     message = models.CharField(max_length=2500, default=' ')
     register_time = models.DateTimeField(default=timezone.now)
 
+    def save(self, *args, **kwargs):
+        # Set the register_time to the current time
+        self.register_time = timezone.now()
+        super().save(*args, **kwargs)
+
 
     """
     Returns the name of the booking form.

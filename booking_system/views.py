@@ -94,8 +94,6 @@ def reservation(request):
         return render(request, 'reservation.html', context)
 
 
-
-
 def list_reservations(request):
 
     # Render the "manage_reservations.html" template
@@ -114,20 +112,17 @@ def reservation_details(request):
 
 
 def edit_reservation(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
-    initial_values = {
-        'name': reservation.name,
-        'phone': reservation.phone,
-        'email': reservation.email,
-        'date': reservation.date,
-        'people': reservation.people,
-        'time': reservation.time,
-        'message': reservation.message
-    }
+    reservation = get_object_or_404(Reservation, id=reservation_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            context = {'reservation': reservation}
+            return render(request, 'edit_reservation_success.html', context)
+    else:
+        form = ReservationForm(instance=reservation, initial={'time': reservation.time.strftime('%H:%M')})
 
-    reservation_form = ReservationForm(initial=initial_values)
-    context = {'form': reservation_form}
-    return render(request, 'edit_reservation.html', context)
+    return render(request, 'edit_reservation.html', {'form': form, 'reservation': reservation})
 
 
 def cancel_reservation(request, reservation_id):
@@ -137,7 +132,6 @@ def cancel_reservation(request, reservation_id):
 
 
 def cancel_reservation_msg(request, reservation_id):
-    print('i am now here')
     reservation = Reservation.objects.get(id=reservation_id)
     if request.method == 'POST':
         reservation.delete()
