@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.db.models.functions import Concat
 from django.db.models import Value, Q  # Import the Value and Q classes for queries
 from django.db import models
+from django.contrib import messages
+
 
 
 def is_table_available(people, booking_date, booking_time):
@@ -89,6 +91,7 @@ def reservation(request):
             context = {'form': booking_form}
             return render(request, 'reservation.html', context)
     else:
+        messages.info(request, "Three credits remain in your account.")
         context = {'form': ReservationForm()}
         # Display Reservation page
         return render(request, 'reservation.html', context)

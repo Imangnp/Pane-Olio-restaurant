@@ -51,7 +51,7 @@ ___
 - [Technologies](#technologies) 
 - [Agile Development projects](#agile)
 - [Bugs](#bugs)
-- [Future Scope](#future-scope)
+- [and](#future-scope)
 - [Testing](#testing)
     * [Accessibility](#accessibility)
     * [Validators Testing](#validators-testing)

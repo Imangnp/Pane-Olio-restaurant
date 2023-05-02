@@ -57,15 +57,13 @@
                                 {{ form.errors }} {{ form.non_field_errors }}
                                 {% if user.is_authenticated %}
                                 <div class="d-grid gap-2 mt-5">
-                                  <button class="btn btn-danger text-uppercase text-space" type="submit">Check Availability</button>
+                                  <button class="btn btn-danger text-uppercase text-space" type="submit">Reserve</button>
                                 </div>
                                 {% else %}
                                 <div class="d-grid gap-2 mt-5">
                                   <a href="{% url 'account_login' %}" class="btn btn-danger text-uppercase text-space">Log In</a>
                                 </div>
-
                                 {% endif %}
-
                           </form>
                         
                         </div>
@@ -74,7 +72,7 @@
             </div>
         </div>
     </div>
-  </section>
+</section>
 
 
 

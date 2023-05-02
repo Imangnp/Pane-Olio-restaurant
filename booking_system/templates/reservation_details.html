@@ -29,13 +29,16 @@
                                 <h6 class="text-black-50 mb-2">Special Request: {{ reservation.message }}</h6>
                             </div>
                             <div class="row">
+                                <!-- Button to change a Reservation -->
                                 <div class="d-grid gap-2 mt-5 col-md-6">
                                     <a href="{% url 'booking_system:edit_reservation' reservation.id %}" class="btn btn-danger">Edit Reservation</a>
                                 </div>
+                                <!-- Button to cancel a Reservation -->
                                 <div class="d-grid gap-2 mt-5 col-md-6">
                                     <a href="{% url 'booking_system:cancel_reservation' reservation.id %}" class="btn btn-danger">Cancel Reservation</a>
                                 </div>
                             </div>
+                            <!-- Go to Reservation list -->
                             <div class="row">
                                 <div class="d-grid gap-2 mt-4 col-md-12">
                                     <a href="{% url 'booking_system:list_reservations' %}" class="btn btn-danger text-space">Back</a>
@@ -43,13 +46,11 @@
                             </div>
                         </div>
                     </form>
-                      
-                      
-                      
+                  
                 </div>
             </div>
         </div>
     </div>
-  </section>
+</section>
 
 {%endblock%}
