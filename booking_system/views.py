@@ -97,6 +97,7 @@ def reservation(request):
         return render(request, 'reservation.html', context)
 
 
+# Display my Reservation dropdown list
 def list_reservations(request):
 
     # Render the "manage_reservations.html" template
@@ -105,6 +106,7 @@ def list_reservations(request):
     return render(request, 'manage_reservations.html', context)
 
 
+# Display my choosen Reservation details
 def reservation_details(request):
     if request.method == 'POST':
         selected_reservation_id = request.POST.get('reservation_dropdown')
@@ -114,29 +116,35 @@ def reservation_details(request):
         return render(request, 'reservation_details.html', context)
 
 
+# Edit a reservation with the given ID.
 def edit_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation, id=reservation_id)
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
+            # If the form is valid, save the changes and redirect to success page
             form.save()
             context = {'reservation': reservation}
             return render(request, 'edit_reservation_success.html', context)
     else:
+        # Display the reservation details in the reservation form
         form = ReservationForm(instance=reservation, initial={'time': reservation.time.strftime('%H:%M')})
 
     return render(request, 'edit_reservation.html', {'form': form, 'reservation': reservation})
 
 
+# Display a confirmation page for cancelling a reservation.
 def cancel_reservation(request, reservation_id):
     reservation = Reservation.objects.get(id=reservation_id)
     context = {'reservation': reservation}
     return render(request, 'cancel_reservation.html', context)
 
 
+# Delete a reservation with the given ID and display a success message
 def cancel_reservation_msg(request, reservation_id):
     reservation = Reservation.objects.get(id=reservation_id)
     if request.method == 'POST':
+        # If the form has been submitted, delete the reservation and redirect to the success page
         reservation.delete()
         return render(request, 'cancel_reservation_msg.html', {'reservation': reservation})
     else:
