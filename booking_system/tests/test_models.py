@@ -77,7 +77,7 @@ class ReservationTest(TestCase):
             table=self.table,
             user=self.user,
             name='Chet Baker',
-            email='chetbaker@example.com',
+            email='chetbaker@test.com',
             phone='1234567890',
             date='2023-06-10',
             time=time(18, 0, 0),
@@ -90,7 +90,7 @@ class ReservationTest(TestCase):
         self.assertEqual(self.reservation.table, self.table)
         self.assertEqual(self.reservation.user, self.user)
         self.assertEqual(self.reservation.name, 'Chet Baker')
-        self.assertEqual(self.reservation.email, 'chetbaker@example.com')
+        self.assertEqual(self.reservation.email, 'chetbaker@test.com')
         self.assertEqual(self.reservation.phone, '1234567890')
         self.assertEqual(str(self.reservation.date), '2023-06-10')
         self.assertEqual(self.reservation.people, 4)
@@ -103,7 +103,7 @@ class ReservationTest(TestCase):
             table=self.table,
             user=self.user,
             name='Chet Baker',
-            email='chetbaker@example.com',
+            email='chetbaker@test.com',
             phone='1234567890',
             date='2023-06-10',
             time=time(18, 0, 0),
