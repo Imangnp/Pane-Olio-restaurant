@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import MenuItem
+from menu.models import MenuItem
 
 
 class MenuItemModelTest(TestCase):

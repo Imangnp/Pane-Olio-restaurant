@@ -4,12 +4,6 @@ from menu.models import MenuItem
 
 
 
-class TestDjango(TestCase):
-
-    def test_this_thing_works(self):
-        self.assertEqual(1, 1)
-
-
 class MenuViewTest(TestCase):
 
     #set up initial data for the tests
