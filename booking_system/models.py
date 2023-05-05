@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-
 class Table(models.Model):
     """
     Available tables with a specific seating capacity
@@ -25,7 +24,6 @@ class Table(models.Model):
         return self.table_number
 
 
-
 class Reservation(models.Model):
     """
     Model representing a form, which should be filled to book a table.
@@ -41,15 +39,15 @@ class Reservation(models.Model):
     time = models.TimeField()
     message = models.CharField(max_length=2500, default=' ')
     register_time = models.DateTimeField(default=timezone.now)
+    is_confirmed = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         # Set the register_time to the current time
         self.register_time = timezone.now()
         super().save(*args, **kwargs)
 
-
     """
     Returns the name of the booking form.
     """
     def __str__(self):
-            return self.name
+        return self.name

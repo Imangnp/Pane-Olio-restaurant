@@ -1,10 +1,10 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from booking_system.models import Table, Reservation
+from .models import Table, Reservation
 from datetime import date, time
 
 
-class TableTest(TestCase):
+class TestTable(TestCase):
 
     def setUp(self):
         # Create a test user

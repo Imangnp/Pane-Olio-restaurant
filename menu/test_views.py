@@ -1,22 +1,29 @@
 from django.test import TestCase
 from django.urls import reverse
-from menu.models import MenuItem
-
+from .models import MenuItem
 
 
 class MenuViewTest(TestCase):
 
-    #set up initial data for the tests
+    # Set up initial data for the tests
     def setUp(self):
         # Create some menu items for testing
-        MenuItem.objects.create(name='Fritto Misto', category='antipasti', price=200.00)
-        MenuItem.objects.create(name='Carbonara', category='main_courses', price=210.00)
-        MenuItem.objects.create(name='Tiramisu', category='dessert', price=150.00)
-        MenuItem.objects.create(name='Chianti Classico', category='red_wine', price=130.00)
-        MenuItem.objects.create(name='Cecchi', category='white_wine', price=130.00)
-        MenuItem.objects.create(name='Menabrea', category='beers', price=70.00)
-        MenuItem.objects.create(name='Fanta', category='soft_drinks', price=40.00)
-        MenuItem.objects.create(name='Caffe', category='hot_drinks', price=40.00)
+        MenuItem.objects.create(
+            name='Fritto Misto', category='antipasti', price=200.00)
+        MenuItem.objects.create(
+            name='Carbonara', category='main_courses', price=210.00)
+        MenuItem.objects.create(
+            name='Tiramisu', category='dessert', price=150.00)
+        MenuItem.objects.create(
+            name='Chianti Classico', category='red_wine', price=130.00)
+        MenuItem.objects.create(
+            name='Cecchi', category='white_wine', price=130.00)
+        MenuItem.objects.create(
+            name='Menabrea', category='beers', price=70.00)
+        MenuItem.objects.create(
+            name='Fanta', category='soft_drinks', price=40.00)
+        MenuItem.objects.create(
+            name='Caffe', category='hot_drinks', price=40.00)
 
     # Test that the status code of the menu page is 200.
     def test_menu_view_url_exists_at_desired_location(self):

@@ -1,10 +1,11 @@
 from django.test import TestCase
+from booking_system import forms
+from .forms import ReservationForm
 from datetime import date
-from booking_system.forms import ReservationForm
 
 
-class ReservationFormTest(TestCase):
-    
+class TestReservationForm(TestCase):
+
     def test_valid_reservation_form(self):
         # Create a dictionary with valid form data
         form_data = {
@@ -16,7 +17,7 @@ class ReservationFormTest(TestCase):
             'time': '12:00',
             'message': 'Special request'
         }
-        form = ReservationForm(data=form_data)
+        form = forms.ReservationForm(data=form_data)
         self.assertTrue(form.is_valid())
 
     def test_invalid_reservation_form(self):

@@ -1,11 +1,11 @@
 from django.test import TestCase
-from menu.models import MenuItem
+from .models import MenuItem
 
 
 class MenuItemModelTest(TestCase):
 
     def setUp(self):
-        # Create an instance of the MenuItem model with predefined values for testing
+        # Create an instance of the MenuItem with predefined values for testing
         self.menu_item = MenuItem.objects.create(
             name='Carbonara', 
             category='main_courses', 
@@ -63,8 +63,9 @@ class MenuItemModelTest(TestCase):
         menu_item = MenuItem.objects.get(id=1)
         expected_object_name = f'{menu_item.name}'
         self.assertEqual(expected_object_name, str(menu_item))
-    
+
     # Test price field has two decimal places
     def test_price_has_two_decimal_places(self):
         menu_item = MenuItem.objects.get(id=1)
-        self.assertTrue(menu_item.price % 1 == 0.0 or menu_item.price % 0.01 == 0.0)
+        self.assertTrue(
+            menu_item.price % 1 == 0.0 or menu_item.price % 0.01 == 0.0)

@@ -6,5 +6,6 @@ from .models import Reservation, Table
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ('name', 'date', 'time', 'id')
 
+
 admin.site.register(Reservation, ReservationAdmin)
 admin.site.register(Table)

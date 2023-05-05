@@ -5,12 +5,11 @@ from datetime import date
 from django.utils import timezone
 
 
-
-PEOPLE_CHOICES = [    
+PEOPLE_CHOICES = [
     ('1', '1 person'),
-    ('2', '2 people'), 
+    ('2', '2 people'),
     ('3', '3 people'),
-    ('4', '4 people'), 
+    ('4', '4 people'),
     ('5', '5 people'),
     ('6', '6 people'),
     ('7', '7 people'),
@@ -44,15 +43,16 @@ TIME_CHOICES = [
 class ReservationForm(forms.ModelForm):
     """
     A form for creating a reservation.
-    Displays fields for the user to enter their name, phone number, email, desired date and time,
-    and number of people in their party. The date and time fields are restricted to valid future
+    Displays fields for the user to enter their name, phone number,
+    email, desired date and time, and number of people in their party.
+    The date and time fields are restricted to valid future
     choices.
     """
 
     class Meta:
         model = Reservation
-        fields = ('name', 'phone', 'email', 'date', 'people', 'time', 'message')
-
+        fields = ('name', 'phone', 'email', 'date', 'people',
+                  'time', 'message')
 
     name = forms.CharField(
         widget=forms.TextInput(
@@ -63,7 +63,7 @@ class ReservationForm(forms.ModelForm):
             }
         )
     )
-    
+
     phone = forms.IntegerField(
         widget=forms.TextInput(
             attrs={
@@ -73,7 +73,7 @@ class ReservationForm(forms.ModelForm):
             }
         )
     )
-    
+
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
@@ -114,7 +114,7 @@ class ReservationForm(forms.ModelForm):
                 'class': 'form-select col-md-6',
                 'required': True,
                 # 'min': datetime.now().strftime('%H:%M'),
-                'data-min':'now',
+                'data-min': 'now',
             }
         ),
         choices=TIME_CHOICES
@@ -130,4 +130,3 @@ class ReservationForm(forms.ModelForm):
         ),
         required=False
     )
-

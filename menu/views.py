@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import MenuItem
 
 
-
 def menu(request):
     # Divide menu Items to diffrent categories
     antipasti_items = MenuItem.objects.filter(category='antipasti')

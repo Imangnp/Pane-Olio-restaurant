@@ -4,10 +4,9 @@ from .models import Reservation, Table
 from .forms import ReservationForm
 from django.utils import timezone
 from django.db.models.functions import Concat
-from django.db.models import Value, Q  # Import the Value and Q classes for queries
+from django.db.models import Value, Q  # Import Value and Q classes for queries
 from django.db import models
 from django.contrib import messages
-
 
 
 def is_table_available(people, booking_date, booking_time):
@@ -16,30 +15,39 @@ def is_table_available(people, booking_date, booking_time):
     """
 
     # Combine the booking date and time into a single datetime object
-    given_date_time = datetime.combine(booking_date, datetime.strptime(booking_time, "%H:%M").time())
+    given_date_time = datetime.combine(
+        booking_date, datetime.strptime(booking_time, "%H:%M").time())
 
-    # Subtract two hours from the given datetime to create a datetime object for two hours before the booking time
+    # Subtract two hours from the given datetime
+    # to create a datetime object for two hours before the booking time
     two_hours_before_given_date_time = given_date_time - timedelta(hours=2)
 
     # Make the datetime timezone-aware, using the current timezone
-    aware_given_date_time = timezone.make_aware(given_date_time, timezone.get_current_timezone())
+    aware_given_date_time = timezone.make_aware(
+        given_date_time, timezone.get_current_timezone())
 
-    # Convert the two-hour-earlier datetime to an aware datetime object using the current timezone
-    aware_two_hours_before_given_date_time = timezone.make_aware(two_hours_before_given_date_time, timezone.get_current_timezone())
+    # Convert the two-hour-earlier datetime to an aware datetime object
+    # using the current timezone
+    aware_two_hours_before_given_date_time = timezone.make_aware(
+        two_hours_before_given_date_time, timezone.get_current_timezone())
 
     print(f"given_date_time={given_date_time}")
 
-    # Filter tables with capacity greater than or equal to the given number of people
+    # Filter tables with capacity greater or equal to the given n. of people
     table_with_ge_capacity = Table.objects.filter(capacity__gte=people)
 
     # Filter reservations that overlap with the given date and time
-    all_reservations_same_time = Reservation.objects.annotate(datetime_string=Concat('date', Value(' '), 'time', output_field=models.CharField()))\
+    all_reservations_same_time = Reservation.objects.annotate(
+        datetime_string=Concat('date', Value(' '), 'time',
+                               output_field=models.CharField())
+        )\
         .filter(
             Q(datetime_string__exact=aware_given_date_time) |
             Q(datetime_string__gte=aware_two_hours_before_given_date_time)
         )
 
-    # Debugging: Print the number of reservations that overlap with the given date and time
+    # Debugging:
+    # Print the number of reservations that overlap with the given date or time
     print(all_reservations_same_time.count())
 
     if table_with_ge_capacity.count() > 0:
@@ -47,7 +55,9 @@ def is_table_available(people, booking_date, booking_time):
             return table_with_ge_capacity[0]
 
         # Exclude reserved tables and return the first available table
-        available_tables = table_with_ge_capacity.exclude(id__in=all_reservations_same_time.values_list('table_id', flat=True)).order_by('capacity')
+        available_tables = table_with_ge_capacity.exclude(
+            id__in=all_reservations_same_time.values_list(
+                'table_id', flat=True)).order_by('capacity')
         if available_tables.count() == 0:
             # If all tables are reserved, return None
             return None
@@ -65,7 +75,7 @@ def reservation(request):
         people_count = booking_form['people'].value()
 
         """
-        Check if the booking form is valid and retrieve the number of people, 
+        Check if the booking form is valid and retrieve the number of people,
         booking date, and booking time if it is
         """
         if booking_form.is_valid():
@@ -74,7 +84,9 @@ def reservation(request):
             booking_time = booking_form.cleaned_data['time']
 
             # Check if a table is available
-            possible_table = is_table_available(people_count, booking_date, booking_time)
+            possible_table = is_table_available(people_count,
+                                                booking_date,
+                                                booking_time)
             if possible_table:
                 # Create a new reservation and save it
                 booking = booking_form.save(commit=False)
@@ -87,11 +99,10 @@ def reservation(request):
             else:
                 return render(request, 'reserve_failed.html')
         else:
-            # if the form is not valid, display the error message and the form again
+            # if the form is not valid, display the form again
             context = {'form': booking_form}
             return render(request, 'reservation.html', context)
     else:
-        messages.info(request, "Three credits remain in your account.")
         context = {'form': ReservationForm()}
         # Display Reservation page
         return render(request, 'reservation.html', context)
@@ -122,15 +133,17 @@ def edit_reservation(request, reservation_id):
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
-            # If the form is valid, save the changes and redirect to success page
+            # If the form is valid, save changes and redirect to success page
             form.save()
             context = {'reservation': reservation}
             return render(request, 'edit_reservation_success.html', context)
     else:
         # Display the reservation details in the reservation form
-        form = ReservationForm(instance=reservation, initial={'time': reservation.time.strftime('%H:%M')})
+        initial_data = {'time': reservation.time.strftime('%H:%M')}
+        form = ReservationForm(instance=reservation, initial=initial_data)
 
-    return render(request, 'edit_reservation.html', {'form': form, 'reservation': reservation})
+    return render(request, 'edit_reservation.html',
+                  {'form': form, 'reservation': reservation})
 
 
 # Display a confirmation page for cancelling a reservation.
@@ -144,9 +157,10 @@ def cancel_reservation(request, reservation_id):
 def cancel_reservation_msg(request, reservation_id):
     reservation = Reservation.objects.get(id=reservation_id)
     if request.method == 'POST':
-        # If the form has been submitted, delete the reservation and redirect to the success page
+        # If submitted, delete the reservation and redirect to the success page
         reservation.delete()
-        return render(request, 'cancel_reservation_msg.html', {'reservation': reservation})
+        return render(request, 'cancel_reservation_msg.html',
+                      {'reservation': reservation})
     else:
-        return render(request, 'cancel_reservation_msg.html', {'reservation': reservation})
-
+        return render(request, 'cancel_reservation_msg.html',
+                      {'reservation': reservation})
