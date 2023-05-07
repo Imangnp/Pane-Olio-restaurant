@@ -6,7 +6,6 @@ from django.utils import timezone
 from django.db.models.functions import Concat
 from django.db.models import Value, Q  # Import Value and Q classes for queries
 from django.db import models
-from django.contrib import messages
 
 
 def is_table_available(people, booking_date, booking_time):
@@ -119,12 +118,11 @@ def list_reservations(request):
 
 # Display my choosen Reservation details
 def reservation_details(request):
-    if request.method == 'POST':
-        selected_reservation_id = request.POST.get('reservation_dropdown')
-        # Render the "reservation_details.html" template
-        reservation = Reservation.objects.get(id=selected_reservation_id)
-        context = {'reservation': reservation}
-        return render(request, 'reservation_details.html', context)
+    selected_reservation_id = request.POST.get('reservation_dropdown')
+    # Render the "reservation_details.html" template
+    reservation = Reservation.objects.get(id=selected_reservation_id)
+    context = {'reservation': reservation}
+    return render(request, 'reservation_details.html', context)
 
 
 # Edit a reservation with the given ID.

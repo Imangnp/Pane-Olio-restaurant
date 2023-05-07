@@ -110,7 +110,6 @@ class ReservationForm(forms.ModelForm):
     time = forms.ChoiceField(
         widget=forms.Select(
             attrs={
-                'type': 'time',
                 'class': 'form-select col-md-6',
                 'required': True,
                 # 'min': datetime.now().strftime('%H:%M'),

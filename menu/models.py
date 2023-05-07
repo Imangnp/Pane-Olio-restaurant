@@ -27,8 +27,7 @@ class MenuItem(models.Model):
         max_length=20, choices=FOOD_CATEGORIES+DRINK_CATEGORIES)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    
+
     # Returns the name of the menu item.
     def __str__(self):
         return self.name
-

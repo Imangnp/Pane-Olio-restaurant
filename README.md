@@ -1,6 +1,6 @@
 
 <div style="text-align:center">
-  <img src="./media/readme_img/logo.svg" alt="Logo">
+  <img src="./documentation/readme/logo.svg" alt="Logo">
 </div>
 <hr>
 
@@ -11,7 +11,7 @@ We invite you to join us for an unforgettable dining experience that will leave 
 
 You can find the live link here: [Pane & Olio](https://)
 
-![Responsive](./media/readme_img/screen-responsive.png)
+![Responsive](./documentation/readme/screen-responsive.png)
 
 ___
 
@@ -25,6 +25,7 @@ ___
     * [User Stories](#user-stories) 
     * [Sitemap](#sitemap) 
     * [Wireframe mockups](#wireframe-mockups) 
+    * [Accessibility](#accessibility)
  - [Structure](#structure) 
     * [Home Page](#home-page) 
         * [Navigation Bar](#navigation-bar) 
@@ -51,11 +52,8 @@ ___
 - [Technologies](#technologies) 
 - [Agile Development projects](#agile)
 - [Bugs](#bugs)
-- [and](#future-scope)
+- [Future Scope](#future-scope)
 - [Testing](#testing)
-    * [Accessibility](#accessibility)
-    * [Validators Testing](#validators-testing)
-    * [Manual Testing](#manual-testing)
 - [Deployment](#deployment)
     * [Deployment](#deployment) 
     * [Local Development](#local-development)
@@ -82,7 +80,7 @@ The main symbol of the logo is a fusion of two classic Italian ingredients - ear
 The color scheme draws inspiration from two iconic symbols of Italian cuisine: the deep red of wine and the rich black of coffee. 
 The wine red hue is used to evoke feelings of warmth, passion, and indulgence. It is primarily used for accent elements that require attention, such as buttons, icons, and borders. The black shade, reminiscent of a strong and aromatic espresso, is used as the main color for text, backgrounds, and borders. It conveys a sense of sophistication, elegance, and simplicity. Together, these two colors create a bold and timeless color scheme that reflects the essence of Italian cuisine - passion, indulgence, sophistication, and simplicity.
 
-![Colors](./media/readme_img/colors.png)
+![Colors](./documentation/readme/colors.png)
 
 Within the color scheme, the vibrant and eye-catching primary color, #DC3545, is reserved for actionable items such as Call-to-Action (CTA) buttons, clickable links, and important highlights that require user attention.
 
@@ -94,8 +92,8 @@ Lastly, the decorative colour #F1EEE9 is mainly used as a background colour for 
 
 ## Typography
 The website utilizes a particular font, Playfair Display, for its header text. Playfair Display is a classic and elegant serif font with high contrast and distinctive letterforms. Its legibility and clarity ensure that the header text remains easily readable and accessible for all users.
-![Fonts](./media/readme_img/font-playfair.png)
-![Fonts](./media/readme_img/font-playfair-styles.png)
+![Fonts](./documentation/readme/font-playfair.png)
+![Fonts](./documentation/readme/font-playfair-styles.png)
 
 As a secondary font, was used the font family bs-font-sans-serif: This font family includes several system fonts and fallbacks. It starts with system-ui, which is a generic font family that maps to the user's preferred system UI font.
 
@@ -123,8 +121,8 @@ As a secondary font, was used the font family bs-font-sans-serif: This font fami
 - As a user I want to be able to add  special requests  during the bookings
 - As a user I want to be notified if there is no availability at the slot time I selected
 - As a user I can log in to my account so that I can view the list of my bookings
-- As a user I can log in to my account so that I can cancel edit my bookings
-- As a user I can log in to my account so that I can cancel cancel my bookings
+- As a user I can log in to my account so that I can edit my bookings
+- As a user I can log in to my account so that I can cancel my bookings
 - As a user I can see if I am logged into the account by checking the top nav bar
 - As a user I can log out if I am already logged in
 
@@ -138,16 +136,27 @@ As a secondary font, was used the font family bs-font-sans-serif: This font fami
 
   ## Sitemap
 The sitemap provides a clear overview of the website's structure and enables users to navigate through the various pages and pathways available to them. It allows to understand the layout of the website and the different options and routes the user can take to find the information they need.
-![Sitemap](./media/readme_img/sitemap.png)
+![Sitemap](./documentation/readme/sitemap.png)
 
   ## Wireframe mockups
 - Initial wireframes and research are being conducted to explore potential layout options.
 
-![Wireframe](./media/readme_img/wireframe.png)
+![Wireframe](./documentation/readme/wireframe.png)
 
 - Samples of Mobile wireframes 
 
-![Wireframe](./media/readme_img/wireframe-mobile.png)
+![Wireframe](./documentation/readme/wireframe-mobile.png)
+
+  ## Accessibility
+  To ensure that the color contrast met the WCAG standards, the "Use Contrast" plug-in was utilized during the design phase on Figma with a focus on accessibility.
+  ![Accessibility](./documentation/readme/accessibility1.png)
+  ![Accessibility](./documentation/readme/accessibility2.png)
+  ![Accessibility](./documentation/readme/accessibility3.png)
+  ![Accessibility](./documentation/readme/accessibility4.png)
+  ![Accessibility](./documentation/readme/accessibility5.png)
+  From the initial accessibility test, I concluded that both text and buttons were easily readable and met the AA and AAA standards.
+
+
 
 
 # Structure
@@ -161,34 +170,34 @@ The sitemap provides a clear overview of the website's structure and enables use
 
 - ## Navigation Bar
 Positioned at the page's uppermost section, the Nav Bar comprises the logo on the left-hand side and links to other pages of the website, including home, about, menu, reserve, and contact. The log in button is on the right-hand side. Its purpose is to facilitate smooth navigation for users across various pages of the website and make the user understand easily if they are logged in or not.
-![Navigation](./media/readme_img/navigation-bar.jpg)
+![Navigation](./documentation/readme/navigation-bar.jpg)
 
 - ## Header
 The header section of the website features a background image that spans the full screen, at the center the logo is clearly state with a short description of the restaurant. Below a CTA button invites the user to click to make a reservation.
-![Header](./media/readme_img/header.png)
+![Header](./documentation/readme/header.png)
 
 - ## Content
 About Us Is a preliminary section where the user can find information about the restaurant's history, background, and mission. It includes information about the restaurant's atmosphere or ambiance and location.
-![Content](./media/readme_img/content.png)
+![Content](./documentation/readme/content.png)
 
 - ## Chef Recommends
 The  section is designed to showcase dishes that the chef personally recommends or considers to be particularly noteworthy. The purpose of this section is to provide customers with recommendations on what to try and also offers insights into the chef's culinary skills and imaginative flair.
-![Chef Recommends](./media/readme_img/chef-recommends.png)
+![Chef Recommends](./documentation/readme/chef-recommends.png)
 
 - ## Opening Hours
 The section provides customers with information about the hours during which the restaurant is open for business. This section includes the days of the week and the specific times that the restaurant is open for breakfast, lunch, and dinner so that customers can plan their visits accordingly and ensure that the restaurant will be open when they wish to dine.
 On the right side, there is a section dedicated to highlighted customer’s reviews.
-![Opening Hours](./media/readme_img/opening-hours.png)
+![Opening Hours](./documentation/readme/opening-hours.png)
 
 - ## Footer
 The footer includes important information about opening hours, contact details, and location.Having contact details, including phone number and email address, included in the footer, make it easy for customers to get in touch with the restaurant. 
-![Footer](./media/readme_img/footer.png)
+![Footer](./documentation/readme/footer.png)
 
 
   ## About Us page
 The "About" page is reachable from the top navigation bar or by clicking on the text button “Learn more” in the landing page. This  page  includes information about the restaurant's history, background, and vision. It also features details about the chef and their culinary background, the restaurant's philosophy or approach to food, and any unique or standout menu offerings.
 At the end of the page the user can always find the information about opening hours, contacts and location.
-![About Us](./media/readme_img/aboutus.png)
+![About Us](./documentation/readme/aboutus.png)
 
   ## Menu
 The menu page  contains a wide variety of dishes that are representative of the Italian cuisine. The menu is divided into several sections, such as antipasti, main courses, desserts and drinks. The owner or admin can modify the menu throght admin panel.
@@ -200,7 +209,7 @@ The main course section features various pasta dishes, meat and fish-based dishe
 Lastly, the dessert section highlights the restaurant's desserts.
 
 In addition, there’s the wine lists, beer lists, and other specialty beverages. 
-![Menu](./media/readme_img/menu.png)
+![Menu](./documentation/readme/menu.png)
 
 ## Authentication
 
@@ -208,91 +217,102 @@ In addition, there’s the wine lists, beer lists, and other specialty beverages
 The signup form  allows users to create an account by providing their personal information. The user is required to enter their name, email address, and a password that they will use to log into the website in the future.
 
 A signup form is an essential element of a website that allows users to create a personalized account and access the website's features and content: In this case the sign up form will allow the user to make the reservation to the restaurant.
-![Sign Up](./media/readme_img/signup.png)
+![Sign Up](./documentation/readme/signup.png)
 
 - ### Log In Form
 The login form allows users who have already signed up to access their account by entering their credentials. 
 
 The login form requires users to input their email address along with their password.
 A checkbox offer a "remember me" action, which allows users to save their login information for future visits. This makes it more convenient for users to log in quickly without having to re-enter their credentials every time.
-![Log In](./media/readme_img/login.png)
+![Log In](./documentation/readme/login.png)
 
 - ### Log Out Form
 The user can anytime log out from their account by clicking on the button on the top right corner of the navigation bar.
 
 The logout page allows users to log out of their account and has a confirmation message and button. It provides security and privacy for the user's account information and is important for protecting accounts from unauthorized access, especially when using a shared or public device.
-![Log Out](./media/readme_img/logout.jpg)
+![Log Out](./documentation/readme/logout.jpg)
 
 ## Reserveation
 The reserve page is hosting a form that allows the user to Make a reservation.
 
 Within the form, users can input their name, phone number, and email address, as well as select their preferred date, time, number of people and special request.
-![Reserveation](./media/readme_img/reservation.jpg)
+![Reserveation](./documentation/readme/reservation.jpg)
 
   - ## How to Reserve a table
   In order to proceed with the reservation the user needs to enter all the information required in the form: Name, phone number and email. After inputting the info, the user can select the day from the date picker which opens after clicking on the calendar icon. The time slot, and the number of people are selectable from a drop down.
-  ![How to Reserve](./media/readme_img/how-reserve.png)
+  ![How to Reserve](./documentation/readme/how-reserve.png)
 
   - ### Success message
   Upon successfully making a reservation, the user will be presented with a confirmation message indicating that the reservation has been secured.
-  ![Success message](./media/readme_img/success-message.png)
+  ![Success message](./documentation/readme/success-message.png)
 
   - ### Fail message
   If the reservation is not successful, the user will receive an error message apologizing for the inconvenience and suggesting that they try again by selecting a different date or time. 
-  ![Fail message](./media/readme_img/fail-message.png)
+  ![Fail message](./documentation/readme/fail-message.png)
 
   - ### My Reservations
   By clicking on the top right button in the navigation bar, A "My Reservations" opens up. The section allows users to view and manage their existing reservations.
 
   The page displays a list of all the reservations the user has made, including the date and time of each reservation.  
   The "My Reservations" section also allow users to modify or cancel their reservations, as well as make new reservations.
-  ![My Reservations](./media/readme_img/my-reservations.jpg)
+  ![My Reservations](./documentation/readme/my-reservations.jpg)
   By clicking on the button “View retails” the user can get all the information regarding the selected reservation, such as date, time, number of guests, and any special requests or notes.
 
   In this section the user can edit the reservation or decide to cancel it.
-  ![My Reservations](./media/readme_img/my-reservations-view.jpg)
+  ![My Reservations](./documentation/readme/user-reservation-view.png)
 
   - ### Edit Reservations
+  To modify the reservation, the user is required to select the "Edit reservation" button located at the bottom left. Upon selection, a form displaying the input data will appear, allowing the user to make necessary changes. To save the updated information, the user can click the "submit" button. A “Thank you” message will appear after submitting.
+  ![user Reservation](./documentation/readme/user-reservation-view.png)
+  ![Change Reservation](./documentation/readme/change-reservation.png)
+  ![Edit Success](./documentation/readme/edit-success.png)
 
   - ### Cancel Reservations
+  To cancel the reservation, the user must click on the "Cancel reservation" button located at the bottom right. After selecting the button, a confirmation message will appear asking if the user is sure to delete. Now the user can decide to proceed with the cancellation or go back to the reservation.
+
+  If the user chooses to continue, a thank you message will show.
+  ![user Reservation](./documentation/readme/user-reservation-view.png)
+  ![Cancel Confirm](./documentation/readme/cancel-confirm.png)
+  ![Edit Success](./documentation/readme/edit-success.png)
+
 
 ## 404 Error page
 It is a page that is displayed when a user tries to access a web page that cannot be found. It includes a message informing the user that the requested page cannot be found. 
-![404 Error page](./media/readme_img/)
+![404 Error page](./documentation/readme/)
 
 ## Admin Panel
 The Admin panel for the restaurant booking system is built using Django.  This allows restaurant staff (Admin) to manage reservations and bookings. In the admin panel, restaurant staff would be able to view, create, edit, and delete reservations for different tables and times.
 
   ## Add Reservation:
 Admin can add a reservation any time they receive a request from customers by accessing to the reservation page from the left menu, clicking on the button “Add reservation” on the top right and proceed with filling the form with all the relevant information.
-![Add Reservation](./media/readme_img/admin-add-reservation.jpg)
+![Add Reservation](./documentation/readme/admin-add-reservation.jpg)
 
 - ### Change Reservation:
 Admin can change the reservation by selecting the section “Reservations” on the left side panel, after that the user needs to select the reservation they are interested.
-![Reservations](./media/readme_img/admin-reservations.jpg)
+![Reservations](./documentation/readme/admin-reservations.jpg)
 
 A fully editable form will show, so that the user can change anything they need to, including date, time, number of people, and the assigned table. After editing they can save and see the updated reservation.
-![Add Reservation](./media/readme_img/admin-change-reservation.jpg)
+![Add Reservation](./documentation/readme/admin-change-reservation.jpg)
 
   ## Menu:
 The left panel hosts a section dedicated to the Menu. This includes a list of all the items showing in the menu of the website. Any time the Admin User delete, add or change anything in this list, it will be updated on the main menu of the website. 
-![Menu](./media/readme_img/admin-menu.jpg)
+![Menu](./documentation/readme/admin-menu.jpg)
 
 - ### Add item to Menu:
 In ordert to Add and item to the menu, the Admin User can click on the button “Add Menu Item” on the top right of the screen, after that it will be redirected to a page where they can input Name, Category, Description and price of the item.
-![Menu Items](./media/readme_img/admin-add-menuitems.jpg)
+![Menu Items](./documentation/readme/admin-add-menuitems.jpg)
 
 - ### Change item to Menu:
 Admin user is able also to change any of the items of the Menu by selecting the item and editing anything they need in the editable page. Lastly they can decide if to Save or Discard the changes. 
-![Menu Items](./media/readme_img/admin-change-menuitems.jpg)
+![Menu Items](./documentation/readme/admin-change-menuitems.jpg)
 
   ## Manage Users:
   From the User management panel, the Admin User has the ability to manage all the registered users on the website, including assigning account names and determining whether they are part of the Staff or not. Admin also can add new users or delete registered users.
-  ![Users](./media/readme_img/admin-users.jpg)
+  ![Users](./documentation/readme/admin-users.jpg)
 
   ## Manage Tables:
   From the Tables section, the Admin User can select tables, add new tables, change tables number and thei capasity.
-  ![Users](./media/readme_img/admin-tables.jpg)
+  ![Users](./documentation/readme/admin-tables.jpg)
 
 
 # Technologies
@@ -318,11 +338,11 @@ Admin user is able also to change any of the items of the Menu by selecting the 
   For this project, GitHub Projects was utilized as an Agile tool. The Agile methodology allows for flexibility in project development, making it easier for developers to adapt to changes in requirements or priorities.
 
   The use of user stories in GitHub makes it easy to create and manage issues, and to track progress on those issues, allowing developers to quickly and easily adjust the project's direction as needed.
-  ![Agile Project](./media/readme_img/agile-project.png)
+  ![Agile Project](./documentation/readme/agile-project.png)
 
   ## GitHub Issues
   GitHub Issues is a project management tool that is useful to developers in several ways: facilitates issue tracking, collaboration, prioritization, and integration, all of which have contribute in my case, to a more efficient and effective development process.
-  ![Agile Issues](./media/readme_img/agile-issues.png)
+  ![Agile Issues](./documentation/readme/agile-issues.png)
 
   ## MoSCoW Prioritization
   The acronym stands for:
@@ -357,6 +377,7 @@ Admin user is able also to change any of the items of the Menu by selecting the 
 
 
 # Testing
+[TESTING](TESTING.md)
 
 
 # Deployment
