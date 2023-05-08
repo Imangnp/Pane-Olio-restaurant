@@ -27,7 +27,7 @@
 /* Header */
 /* Background image Home page header */
 .header-bg {
-    background-image:url('/static/images/background-home.jpg');
+    background-image:url('https://res.cloudinary.com/dt2vjq2t0/image/upload/v1683562441/static/images/background-home.0d7569f5c8e2.jpg');
     background-size: cover;
     margin-top: -76px;
 }
@@ -113,7 +113,7 @@ h3 {
 
 /* Background image of opening hour section */
 .opening-bg {
-    background-image:url('/static/images/background-openinghours.jpg');
+    background-image:url('https://res.cloudinary.com/dt2vjq2t0/image/upload/v1683558834/static/images/background-openinghours.e40ac4b1a6f6.jpg');
     background-size: cover;
 }
 
@@ -138,7 +138,7 @@ h3 {
 
 /* Menu Page */
 .menu-bg {
-    background-image:url('/static/images/background-menu.jpg');
+    background-image:url('https://res.cloudinary.com/dt2vjq2t0/image/upload/v1683562450/static/images/background-menu.b472f8dc9114.jpg');
     background-size: cover;
     margin-top: -76px;
 }
@@ -154,14 +154,14 @@ h3 {
 
 /* About Us Page */
 .about-bg {
-    background-image:url('/static/images/background-aboutus.jpg');
+    background-image:url('https://res.cloudinary.com/dt2vjq2t0/image/upload/v1683562440/static/images/background-aboutus.45d9f1eafab5.jpg');
     background-size: cover;
     margin-top: -76px;
 }
 
 /* Reservation Page */
 .reserve-bg {
-    background-image:url('/static/images/background-reservation.jpg');
+    background-image:url('https://res.cloudinary.com/dt2vjq2t0/image/upload/v1683558512/static/images/background-reservation.c8c25d319e7b.png');
     background-size: cover;
     margin-top: -76px;
 }
