@@ -34,13 +34,13 @@ ___
         * [Chef Recommends](#chef-recommends) 
         * [Opening Hours](#opening-hours) 
         * [Footer](#footer) 
-    * [About Us](#aboutus)
+    * [About Us](#about-us)
     * [Menu](#menu) 
     * [Authentication](#authentication) 
         * [Sign Up](#signup) 
         * [Log In](#login)
         * [Log Out](#logout)
-    * [Reserveation](#reservation)
+    * [Reservation](#reservation)
         * [How to Reserve a table](#how-reserve) 
         * [Success message](#success-message) 
         * [Fail message](#fail-message) 
@@ -50,7 +50,7 @@ ___
     * [404 Error page](#404-error-page)
     * [Admin Panel](#admin-panel)
 - [Technologies](#technologies) 
-- [Agile Development projects](#agile)
+- [Agile Development projects](#agile-development-projects)
 - [Bugs](#bugs)
 - [Future Scope](#future-scope)
 - [Testing](#testing)
@@ -193,7 +193,7 @@ The footer includes important information about opening hours, contact details, 
 ![Footer](./documentation/readme/footer.png)
 
 
-  ## About Us page
+  ## About Us
 The "About" page is reachable from the top navigation bar or by clicking on the text button “Learn more” in the landing page. This  page  includes information about the restaurant's history, background, and vision. It also features details about the chef and their culinary background, the restaurant's philosophy or approach to food, and any unique or standout menu offerings.
 At the end of the page the user can always find the information about opening hours, contacts and location.
 ![About Us](./documentation/readme/aboutus.png)
@@ -231,7 +231,7 @@ The user can anytime log out from their account by clicking on the button on the
 The logout page allows users to log out of their account and has a confirmation message and button. It provides security and privacy for the user's account information and is important for protecting accounts from unauthorized access, especially when using a shared or public device.
 ![Log Out](./documentation/readme/logout.jpg)
 
-## Reserveation
+## Reservation
 The reserve page is hosting a form that allows the user to Make a reservation.
 
 Within the form, users can input their name, phone number, and email address, as well as select their preferred date, time, number of people and special request.
@@ -323,10 +323,13 @@ Admin user is able also to change any of the items of the Menu by selecting the 
   - Markdown (markup language used to write README and TESTING documen)
   - Structured Query Language (used to retrieve data from a database)
 
-  ## Packages and Libraries
+  ## Tools
   - Django extensions (collection of custom extensions for the Django framework)
   - Allauth (authentication and social login Django app)
   - Crispy Forms (helper Django app to create beautiful forms)
+  - ElephantSQL (used as the Postgres database)
+  - Bootstrap (used as the front-end CSS framework)
+  - Heroku (used for hosting the deployed back-end site)
   - Cloudinary ( Will use it in the future for future scopes)
 
 
@@ -357,6 +360,35 @@ By following the Agile methodology, I was able to create a final product that wa
 
 
 # Bugs
+
+  ## 1- Problem:
+  I encountered a bug related to the reservation form and model in my Django application. The form was not functioning properly in both the app and admin panel, and I received the following error message:
+
+    "column 'table_id' of relation 'booking_system_reservation' contains null value"
+
+  Furthermore, I was unable to migrate the changes, and I received a prompt to enter a default value : 
+
+    Select an option: 
+    Please enter the default value now, as valid Python
+    The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+    Type 'exit' to exit this prompt
+
+  ### - Solution:
+  I found that this error indicated a corruption in the database tables. As a solution, I had to wipe the database, which unfortunately resulted in losing any current database content. This meant that I had to add content to the database again, including superusers.
+
+    To completely remove your Django migrations and reset your database:
+    Remove the all migrations files within your project. Go through each of your project apps' migration folders and remove everything inside, except the __init__.py file.
+    Drop the database. If you're using Elephant SQL, go to the Elephant SQL dashboard, select your database, and select the reset button. Locally, you can just delete the db.sqlite3  file.
+    Run the commands python3 manage.py makemigrations and python3 manage.py migrate to remake migrations and setup the new database.
+
+  ## 2- Problem:
+  I aimed to incorporate a calendar into my website that matched its style, by utilizing a [date picker template](https://colorlib.com/wp/template/calendar-14/). However, I encountered an issue where the calendar allowed the selection of dates prior to the current one. While the intended behavior was to restrict the selection to the current date and later.
+
+  ### - Solution:
+  In order to achieve this, I used the `DateInput` widget from the Django forms library to display a datepicker calendar on the webpage. The calendar is restricted to valid future choices, as specified in the min attribute of the widget. The `str(date.today())` expression in the `min` attribute sets the minimum date to the current date. Then I deactivated date picker template.
+  ![Bug Datepicker](./documentation/readme/bug-datepicker.png)
+
+
 
 
 
@@ -449,8 +481,8 @@ To make the project live, Heroku was used for deployment.
   8. Save, commit and push the changes to your Git repository.
 
   ## Finally:
-  1. Log in to the Heroku dashboard and select your app. Go to the "Settings" again and scroll down to the "Config Vars" section. 
-  2. Set a new config: DISABLE_COLLECTSTATIC=1 . This can be removed for the final deployment
+  1. Go to the Heroku dashboard and select your app. Go to the "Settings" again and scroll down to the "Config Vars" section. 
+  2. Set a new config: `DISABLE_COLLECTSTATIC=1` . This can be removed for the final deployment
   3. Go to the "Deploy" tab and connect your app to your Git repository. Enable automatic deploys by selecting your deployment branch and clicking "Enable Automatic Deploys".
   4. Click "Deploy Branch" to deploy the app to Heroku.
 
@@ -514,6 +546,7 @@ To make the project live, Heroku was used for deployment.
     * [Github](https://github.com/foad-heidari/dj-booking)
     * [Stackoverflow](https://stackoverflow.com/)
 
+[Back to Top](#)
 
 ---
 
