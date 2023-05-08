@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
     <!-- Header About Us Page -->
@@ -32,7 +34,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="/static/images/pasta-maker.jpg" alt="Image of making pasta">
+                    <img class="img-fluid" src="{% static 'images/pasta-maker.jpg' %}" alt="Image of making pasta">
                 </div>
             </div>
         </div>
@@ -44,7 +46,7 @@
             <div class="row">
                 <!-- Random image fot Chef  -->
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="/static/images/chef-mario.png" alt="Image of the chef">
+                    <img class="img-fluid" src="{% static 'images/chef-mario.png' %}" alt="Image of the chef">
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h6 class="text-danger text-spac">20 Year of Experience</h6>
@@ -59,7 +61,7 @@
                     </p>
                     <div class="row mt-5">
                         <div class="col-md-2">
-                            <img src="/static/images/signature.png" class="float-start" alt="Chef's autograph">
+                            <img src="{% static 'images/signature.png' %}" class="float-start" alt="Chef's autograph">
                         </div>
                         <div class="col-md-10">
                             <span class="">Mario Rossi</span>

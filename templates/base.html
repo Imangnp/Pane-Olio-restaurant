@@ -34,7 +34,7 @@
         <div class="container">
           <!-- Logo -->
           <a class="navbar-brand" href="{% url 'home' %}">
-              <img src="/static/images/logo.svg" alt="Logo of Pane & Olio" height="50">
+              <img src="{% static 'images/logo.svg' %}" alt="Logo of Pane & Olio" height="50">
           </a>
           <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
           <div class="row">
           <div class="col-md-2 mb-3">
               <div class="footer-info mt-2 text-center">
-              <img class="my-4 logo-footer" src="/static/images/logo.svg" alt="Logo of Pane & Olio">              
+              <img class="my-4 logo-footer" src="{% static 'images/logo.svg' %}" alt="Logo of Pane & Olio">              
               </div>
           </div>
 
