@@ -27,7 +27,7 @@
 /* Header */
 /* Background image Home page header */
 .header-bg {
-    background-image:url('/static/images/background-home.svg');
+    background-image:url('/static/images/background-home.jpg');
     background-size: cover;
     margin-top: -76px;
 }
@@ -113,7 +113,7 @@ h3 {
 
 /* Background image of opening hour section */
 .opening-bg {
-    background-image:url('/static/images/background-openinghours.png');
+    background-image:url('/static/images/background-openinghours.jpg');
     background-size: cover;
 }
 
@@ -138,7 +138,7 @@ h3 {
 
 /* Menu Page */
 .menu-bg {
-    background-image:url('/static/images/background-menu.png');
+    background-image:url('/static/images/background-menu.jpg');
     background-size: cover;
     margin-top: -76px;
 }
@@ -154,14 +154,14 @@ h3 {
 
 /* About Us Page */
 .about-bg {
-    background-image:url('/static/images/background-aboutus.png');
+    background-image:url('/static/images/background-aboutus.jpg');
     background-size: cover;
     margin-top: -76px;
 }
 
 /* Reservation Page */
 .reserve-bg {
-    background-image:url('/static/images/background-reservation.png');
+    background-image:url('/static/images/background-reservation.jpg');
     background-size: cover;
     margin-top: -76px;
 }
