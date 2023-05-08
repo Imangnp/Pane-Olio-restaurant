@@ -9,7 +9,7 @@ To book a table, simply create an account on our website. Our reservation system
 Our menu is updated regularly to ensure that we always serve the freshest dishes. In addition, our website provides access to our opening hours, contact information, and directions to the restaurant.
 We invite you to join us for an unforgettable dining experience that will leave you wanting more.
 
-You can find the live link here: [Pane & Olio](https://)
+You can find the live link here: [Pane & Olio](https://paneeolio.herokuapp.com/)
 
 ![Responsive](./documentation/readme/screen-responsive.png)
 
@@ -58,7 +58,6 @@ ___
     * [Deployment](#deployment) 
     * [Local Development](#local-development)
 - [Credits](#credits)
-- [Acknowledgements](#acknowledgements)
 
 ___
 
@@ -278,7 +277,7 @@ Within the form, users can input their name, phone number, and email address, as
 
 ## 404 Error page
 It is a page that is displayed when a user tries to access a web page that cannot be found. It includes a message informing the user that the requested page cannot be found. 
-![404 Error page](./documentation/readme/)
+![404 Error page](./documentation/readme/404.png)
 
 ## Admin Panel
 The Admin panel for the restaurant booking system is built using Django.  This allows restaurant staff (Admin) to manage reservations and bookings. In the admin panel, restaurant staff would be able to view, create, edit, and delete reservations for different tables and times.
@@ -318,21 +317,26 @@ Admin user is able also to change any of the items of the Menu by selecting the 
 # Technologies
 
   ## Languages
-  - Django (Python-based web framework)
+  - Django (Python-based web framework for building web applications)
   - HTML (markup language for creating web pages)
   - CSS (style sheet language for describing the presentation of HTML documents)
-  - JavaScript (scripting language for creating interactive web pages)
   - Markdown (markup language used to write README and TESTING documen)
+  - Structured Query Language (used to retrieve data from a database)
 
   ## Packages and Libraries
-    - Django extensions
-    - Allauth (or authentication and social login)
-    - Crispy Forms
-    - Cloudinary ( Will use it in the future for future scopes)
+  - Django extensions (collection of custom extensions for the Django framework)
+  - Allauth (authentication and social login Django app)
+  - Crispy Forms (helper Django app to create beautiful forms)
+  - Cloudinary ( Will use it in the future for future scopes)
 
 
 
 # Agile Development projects
+As a developer who has worked with Agile methodology, I found it to be an effective approach for designing and developing a website for an Italian restaurant as a school project. Agile's emphasis on frequent iterations, testing, and adaptability allowed me to create a website that met the needs of the fictional restaurant and its customers.
+
+Throughout the development process, I leveraged Agile's flexibility, allowing me to quickly make changes in requirements or priorities without significantly disrupting the project.
+
+By following the Agile methodology, I was able to create a final product that was of high quality and suited the needs of the fictional restaurant. Overall, I found Agile to be a valuable approach to web development, even when working on solo projects.
 
   ## GitHub Projects
   For this project, GitHub Projects was utilized as an Agile tool. The Agile methodology allows for flexibility in project development, making it easier for developers to adapt to changes in requirements or priorities.
@@ -352,8 +356,8 @@ Admin user is able also to change any of the items of the Menu by selecting the 
   Won't Have: requirements that are not essential to the project's success and will not be delivered in the current or any future release.
 
 
-
 # Bugs
+
 
 
 # Future Scope
@@ -375,12 +379,103 @@ Admin user is able also to change any of the items of the Menu by selecting the 
   - As a user I want to be able to see other people's reviews on the restaurant and write comments.
   - As an admin I want to be able to comment and pin my customers' reviews.
 
+  ## Time picker
+  As part of the future scope, I’ll enhance the time picker by constraining it to only show future time and not displaying the already passed time. This feature will make it easier for users to select the appropriate reservation time and avoid any confusion that may arise due to the display of past times. Additionally, this enhancement will improve the user experience by providing them with more relevant options to choose from and reduce the likelihood of errors or mistakes in reservation timing.
+
+  ## Foto gallery
+  The website will include a photo gallery showcasing the ambiance and cuisine of the restaurant. The gallery could feature high-quality images of the restaurant's decor, signature dishes, and various events held at the restaurant. This addition would provide potential customers with a better visual representation of the offerings and enhance their overall experience with the restaurant. Additionally, the photo gallery can be presented in the form of a slideshow, providing a more interactive experience for users.
+
+  ## Calendar UI
+  As part of the future scope  there will be improvement of the UI of the calendar in order to match the look and feel of the website.
+
 
 # Testing
 [TESTING](TESTING.md)
 
 
 # Deployment
+To make the project live, Heroku was used for deployment.
+
+  ## Database (ElephangSQL)
+  1. Visit the ElephantSQL website and log in to your account.
+  2. In the top-right corner of the page, you'll see a green button labeled "Create New Instance." Click on it.
+  3. Enter a name for your database and leave the plan field as is. You can optionally add tags to help you identify the instance later.
+  4. Choose the region where you want to host your database.
+  5. Click on "Review," check that your details are correct. Then click "Create instance."
+  6. Once the instance is created, go to your dashboard and find the new database instance you just created. Click on it.
+  7. Look for the URL starting with "postgress://" and copy it.
+  8. Open the env.py file and paste the URL as the value for the DATABASE_URL variable. Save the file.
+
+  ## Heroku App Setup
+  Set up a new Heroku app and configure it to use your ElephantSQL database by following these steps:
+  1. Log in to your Heroku account and navigate to the dashboard.
+  2. Click on the "New" button in the top right corner of the page and select "Create New App" from the dropdown menu.
+  3. Give the app a unique name and select the region.Then click on the "Create app" button at the bottom left of the page.
+  4. Open the "Settings" tab for your new app and scroll down to the "Config Vars" section.
+  5. Create a new config var with the name "DATABASE_URL" and paste the database URL you copied from ElephantSQL into the value field (without quotation marks).
+  6. Save your changes
+
+  ## Then, in your Django project in Gitpod
+  1. Install the dj_database_url and psycopg2 packages by running the following command:
+
+    pip3 install dj_database_url
+
+  2. Update your requirements.txt file with the newly installed packages:
+
+    pip3 freeze > requirements.txt
+
+  3. In your settings.py file, find the DATABASES dictionary and comment out the existing database configuration. Replace it with the following code:
+ ```python
+    DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+ ```
+  4. Import dj_database_url by adding the following line:
+
+    import dj_database_url
+
+  5. In the GitPod terminal, run the following command to apply database migrations to the new database:
+
+    python3 manage.py migrate
+
+  6. Add the Heroku app URL and localhost to the ALLOWED_HOSTS list in settings.py:
+
+    ALLOWED_HOSTS = ['heroku-app-url-here.herokuapp.com', 'localhost']
+
+  7. Create a new file called Procfile in the root directory of your project and add the following line to it (Replace myproject with the name of your Django project.):
+
+    web: gunicorn myproject.wsgi
+
+  8. Save, commit and push the changes to your Git repository.
+
+  ## Finally:
+  1. Log in to the Heroku dashboard and select your app. Go to the "Settings" again and scroll down to the "Config Vars" section. 
+  2. Set a new config: DISABLE_COLLECTSTATIC=1 . This can be removed for the final deployment
+  3. Go to the "Deploy" tab and connect your app to your Git repository. Enable automatic deploys by selecting your deployment branch and clicking "Enable Automatic Deploys".
+  4. Click "Deploy Branch" to deploy the app to Heroku.
+
+  The Django app should now be deployed on Heroku with an external ElephantSQL database.
+
+
+  ## Local Development
+
+  ### How to Fork
+  To fork the repository:
+  1. Log in (or sign up) to GitHub.
+  2. Go to the repository page on GitHub that you want to fork
+  3. Click on the fork button in the top right of the page.
+  4. Once the forking process is complete, you will be redirected to the forked repository page in your own account.
+
+  ### How to Clone
+  To clone the repository:
+  1. Log in (or sign up) to GitHub.
+  2. Go to the repository page on GitHub that you want to clone
+  3. Click on the "Code" button located towards the top-right of the page
+  4. select whether you would like to clone with HTTPS, SSH or the GitHub CLI and copy the link given.
+  5. Open the terminal in your IDE 
+  6. Navigate to the directory where you want to clone the repository
+  7. Type the following command into the terminal git clone followed by the link you copied in step 4.
+  8. Press Enter to start the cloning process.
 
 
 # Credits
@@ -408,19 +503,16 @@ Admin user is able also to change any of the items of the Menu by selecting the 
 
   ## Code
   - The iFrame code for the map located in the footer is sourced from [Maps](https://www.google.se/maps/)
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-
-
-
-# Acknowledgements
-
-
-
+  - To better understand how testing automation works, I referred to: [MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing)
+  - I got inspiration from the following website to create the live menu: [Skillshare](https://www.skillshare.com/en/classes/Build-A-Restaurant-Site-With-Python-and-Django/1355998460)
+  - To write README and TESTING I used [Markdown](https://en.wikipedia.org/wiki/Markdown)
+  - In generel to cretae booking system and for assistance with various issues I used:
+    * [Medium](https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78)
+    * [Stackoverflow](https://stackoverflow.com/questions/54932056/django-reservation-system)
+    * [Skillshare](https://www.skillshare.com/en/classes/Build-A-Restaurant-Site-With-Python-and-Django/1355998460)
+    * [Youtube](https://www.youtube.com/watch?v=s5xbtuo9pR0&ab_channel=JohnAbdsho)
+    * [Github](https://github.com/foad-heidari/dj-booking)
+    * [Stackoverflow](https://stackoverflow.com/)
 
 
 ---

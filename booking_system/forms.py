@@ -90,7 +90,7 @@ class ReservationForm(forms.ModelForm):
                 'type': 'date',
                 'min': str(date.today()),
                 # 'id': 'input',
-                # 'placeholder': 'Date',
+                'placeholder': 'Date',
                 'class': 'form-control',
                 'required': True,
             }
