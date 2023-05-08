@@ -385,11 +385,8 @@ By following the Agile methodology, I was able to create a final product that wa
   I aimed to incorporate a calendar into my website that matched its style, by utilizing a [date picker template](https://colorlib.com/wp/template/calendar-14/). However, I encountered an issue where the calendar allowed the selection of dates prior to the current one. While the intended behavior was to restrict the selection to the current date and later.
 
   ### - Solution:
-  In order to achieve this, I used the `DateInput` widget from the Django forms library to display a datepicker calendar on the webpage. The calendar is restricted to valid future choices, as specified in the min attribute of the widget. The `str(date.today())` expression in the `min` attribute sets the minimum date to the current date. Then I deactivated date picker template.
+  In order to achieve this, I used the `DateInput` widget from the Django forms library to display a datepicker calendar on the webpage. The calendar is restricted to valid future choices, as specified in the min attribute of the widget. The `str(date.today())` expression in the `min` attribute sets the minimum date to the current date. Then I removed date picker template.
   ![Bug Datepicker](./documentation/readme/bug-datepicker.png)
-
-
-
 
 
 # Future Scope
