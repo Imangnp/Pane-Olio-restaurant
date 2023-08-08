@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta, time, datetime
 from .models import Reservation, Table
 from .forms import ReservationForm
@@ -126,34 +127,55 @@ def reservation_details(request):
 
 
 # Edit a reservation with the given ID.
+# The user must be logged in to access this functionality.
+@login_required
 def edit_reservation(request, reservation_id):
+
+    form = None
+    reservation = None
+    context = {}
+
     reservation = get_object_or_404(Reservation, id=reservation_id)
-    if request.method == 'POST':
-        form = ReservationForm(request.POST, instance=reservation)
-        if form.is_valid():
-            # If the form is valid, save changes and redirect to success page
-            form.save()
-            context = {'reservation': reservation}
-            return render(request, 'edit_reservation_success.html', context)
+    # Check if the user has permission to access the reservation
+    if reservation.user == request.user:
+        if request.method == 'POST':
+            form = ReservationForm(request.POST, instance=reservation)
+            if form.is_valid():
+                # If form is valid, save changes and redirect to success page
+                form.save()
+                context = {'reservation': reservation}
+                return render(
+                    request, 'edit_reservation_success.html', context)
+        else:
+            # Display the reservation details in the reservation form
+            initial_data = {'time': reservation.time.strftime('%H:%M')}
+            form = ReservationForm(instance=reservation, initial=initial_data)
     else:
-        # Display the reservation details in the reservation form
-        initial_data = {'time': reservation.time.strftime('%H:%M')}
-        form = ReservationForm(instance=reservation, initial=initial_data)
+        # redirect to the reservation form
+        return redirect('booking_system:reservation')  # Adjust the URL
 
     return render(request, 'edit_reservation.html',
                   {'form': form, 'reservation': reservation})
 
 
 # Display a confirmation page for cancelling a reservation.
+# The user must be logged in to access this functionality.
+@login_required
 def cancel_reservation(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
-    context = {'reservation': reservation}
-    return render(request, 'cancel_reservation.html', context)
+    reservation = get_object_or_404(Reservation, id=reservation_id)
+    if reservation.user == request.user:
+        cancel_reservation_msg(request, reservation_id)
+    else:
+        # Redirect to the reservation page
+        return redirect('booking_system:reservation')  # Adjust the URL
+
+    return render(request, 'cancel_reservation.html',
+                  {'reservation': reservation})
 
 
 # Delete a reservation with the given ID and display a success message
 def cancel_reservation_msg(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
+    reservation = get_object_or_404(Reservation, id=reservation_id)
     if request.method == 'POST':
         # If submitted, delete the reservation and redirect to the success page
         reservation.delete()
