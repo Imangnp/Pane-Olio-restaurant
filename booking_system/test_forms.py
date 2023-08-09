@@ -10,7 +10,7 @@ class TestReservationForm(TestCase):
         # Create a dictionary with valid form data
         form_data = {
             'name': 'Chet Baker',
-            'phone': '1234567890',
+            'phone': '+1234567890',
             'email': 'chetbaker@test.com',
             'date': str(date.today()),
             'people': '2',
@@ -24,12 +24,12 @@ class TestReservationForm(TestCase):
         # Create a dictionary with invalid form data
         form_data = {
             'name': '',
-            'phone': '1234567890',
+            'phone': '+1234567890',
             'email': 'chetbaker@test.com',
             'date': '2023-07-10',
             'people': '4',
             'time': '12:30',
-            'message': 'Special request' 
+            'message': 'Special request'
         }
         form = ReservationForm(data=form_data)
         self.assertFalse(form.is_valid())
@@ -39,7 +39,7 @@ class TestReservationForm(TestCase):
         # Create a dictionary with invalid form data (invalid email format)
         form_data = {
             'name': 'Chet Baker',
-            'phone': '1234567890',
+            'phone': '+1234567890',
             'email': 'chetbakertest.com',  # invalid format
             'date': '2023-05-06',
             'people': '2',
@@ -48,13 +48,14 @@ class TestReservationForm(TestCase):
         }
         form = ReservationForm(data=form_data)
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['email'], ['Enter a valid email address.'])
+        self.assertEqual(form.errors['email'], [
+                          'Enter a valid email address.'])
 
     def test_phone_field_validation(self):
         form_data = {
             'name': 'Chet Baker',
-            'phone': '1234-567-890',
-            'email': 'hetbaker@test.com',
+            'phone': '+12345678900000000',
+            'email': 'chetbaker@test.com',
             'date': '2023-07-10',
             'people': '2',
             'time': '12:00'

@@ -64,14 +64,18 @@ class ReservationForm(forms.ModelForm):
         )
     )
 
-    phone = forms.IntegerField(
+    phone = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 'placeholder': 'Phone',
                 'class': 'form-control',
-                'required': True
+                'required': True,
+                'pattern': r'^(?:\+|00|0)\d{6,16}$',
+                'title': ('It can start with "0", "00" or "+" followed by '
+                          'at least 6 digits.')
             }
-        )
+        ),
+        max_length=16
     )
 
     email = forms.EmailField(
@@ -87,12 +91,12 @@ class ReservationForm(forms.ModelForm):
     date = forms.DateField(
         widget=forms.DateInput(
             attrs={
-                'type': 'date',
-                'min': str(date.today()),
-                # 'id': 'input',
                 'placeholder': 'Date',
                 'class': 'form-control',
                 'required': True,
+                'type': 'date',
+                'min': str(date.today()),
+                # 'id': 'input',
             }
         )
     )

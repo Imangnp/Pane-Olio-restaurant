@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'pane_e_olio.wsgi.application'
 
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
- }
+}
 
 
 # Password validation

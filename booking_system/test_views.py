@@ -32,7 +32,7 @@ class ReservationViewsTest(TestCase):
         reservation_data = {
             'name': '',
             'email': 'chetbaker@example.com',
-            'phone': '1234567890',
+            'phone': '+1234567890',
             'people': 4,
             'date': self.date,
             'time': self.time,
@@ -49,7 +49,7 @@ class ReservationViewsTest(TestCase):
         reservation_data = {
             'name': 'Chet Baker',
             'email': 'chetbaker@example.com',
-            'phone': '1234567890',
+            'phone': '+1234567890',
             'people': 4,
             'date': self.date,
             'time': self.time,
@@ -58,5 +58,3 @@ class ReservationViewsTest(TestCase):
         response = self.client.post(reverse(
             'booking_system:reservation'), reservation_data)
         self.assertEqual(response.status_code, 200)
-
-    

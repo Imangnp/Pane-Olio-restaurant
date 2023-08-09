@@ -51,7 +51,6 @@ class TestTable(TestCase):
         with self.assertRaises(Table.DoesNotExist):
             Table.objects.get(table_number='101')
 
-   
     # Test if __str__ method returns the table number
     def test_table_str_method(self):
         self.assertEqual(str(self.table5), '201')
@@ -62,13 +61,13 @@ class ReservationTest(TestCase):
     def setUp(self):
         # Create a test user
         self.user = User.objects.create_user(
-            username='respo', 
+            username='respo',
             password='testpassword'
         )
 
         # Create a test table
         self.table = Table.objects.create(
-            table_number='201', 
+            table_number='201',
             capacity=4
         )
 
@@ -78,11 +77,11 @@ class ReservationTest(TestCase):
             user=self.user,
             name='Chet Baker',
             email='chetbaker@test.com',
-            phone='1234567890',
+            phone='+1234567890',
             date='2023-06-10',
             time=time(18, 0, 0),
             people=4,
-            message='This is a test reservation'
+            message='This is a test'
         )
 
     def test_reservation_creation(self):
@@ -91,11 +90,11 @@ class ReservationTest(TestCase):
         self.assertEqual(self.reservation.user, self.user)
         self.assertEqual(self.reservation.name, 'Chet Baker')
         self.assertEqual(self.reservation.email, 'chetbaker@test.com')
-        self.assertEqual(self.reservation.phone, '1234567890')
+        self.assertEqual(self.reservation.phone, '+1234567890')
         self.assertEqual(str(self.reservation.date), '2023-06-10')
         self.assertEqual(self.reservation.people, 4)
         self.assertEqual(str(self.reservation.time), '18:00:00')
-        self.assertEqual(self.reservation.message, 'This is a test reservation')
+        self.assertEqual(self.reservation.message, 'This is a test')
 
     def test_register_time_is_set_on_save(self):
         # Test if register_time is set on save
@@ -104,11 +103,11 @@ class ReservationTest(TestCase):
             user=self.user,
             name='Chet Baker',
             email='chetbaker@test.com',
-            phone='1234567890',
+            phone='+1234567890',
             date='2023-06-10',
             time=time(18, 0, 0),
             people=4,
-            message='This is a test reservation'
+            message='This is a test'
         )
         self.assertIsNotNone(reservation.register_time)
 

@@ -33,7 +33,7 @@ class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=16)
     date = models.DateField()
     people = models.IntegerField()
     time = models.TimeField()
