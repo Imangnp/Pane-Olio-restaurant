@@ -48,7 +48,9 @@ ___
         * [Edit Reservations](#edit-reservations) 
         * [Cancel Reservations](#cancel-reservations)
     * [404 Error page](#404-error-page)
-    * [Admin Panel](#admin-panel)
+- [Administration and Database Structure](#administration-and-database-structure)
+  * [Database Schema](#database-schema)
+  * [Admin Panel](#admin-panel)
 - [Technologies](#technologies) 
 - [Agile Development projects](#agile-development-projects)
 - [Bugs](#bugs)
@@ -279,39 +281,61 @@ Within the form, users can input their name, phone number, and email address, as
 It is a page that is displayed when a user tries to access a web page that cannot be found. It includes a message informing the user that the requested page cannot be found. 
 ![404 Error page](./documentation/readme/404.png)
 
+
+# Administration and Database Structure
+
+## Database Schema
+The database schema serves as the foundation for organizing and storing data within the application. It defines the structure of tables, their fields, and relationships, ensuring efficient data management and retrieval. 
+The following section provides an overview of the key tables and relationships within the application:
+
+**User** table represents registered users of the system.\
+**Email Address** table stores email addresses and their verification status.\
+**Reservation** table stores information about reservations made by users.\
+**Table** table represents available tables in the restaurant.\
+**Menu Item** table contains details about menu items available in the restaurant.
+
+**Relationships**\
+The "Reservation" table references the "User" table to link reservations with the user who made them.\
+The "Reservation" table references the "EmailAddress" table to link reservations with the user's email address.\
+The "Reservation" table references the "Table" table to associate reservations with available tables.\
+The "Reservation" table references the "Table" table to ensure that the number of people in a reservation does not exceed the maximum capacity of the associated table.
+
+![Database Schema](./documentation/readme/data-schema.png)
+
 ## Admin Panel
 The Admin panel for the restaurant booking system is built using Django.  This allows restaurant staff (Admin) to manage reservations and bookings. In the admin panel, restaurant staff would be able to view, create, edit, and delete reservations for different tables and times.
 
-  ## Add Reservation:
-Admin can add a reservation any time they receive a request from customers by accessing to the reservation page from the left menu, clicking on the button “Add reservation” on the top right and proceed with filling the form with all the relevant information.
-![Add Reservation](./documentation/readme/admin-add-reservation.jpg)
-
-- ### Change Reservation:
-Admin can change the reservation by selecting the section “Reservations” on the left side panel, after that the user needs to select the reservation they are interested.
-![Reservations](./documentation/readme/admin-reservations.jpg)
-
-A fully editable form will show, so that the user can change anything they need to, including date, time, number of people, and the assigned table. After editing they can save and see the updated reservation.
-![Add Reservation](./documentation/readme/admin-change-reservation.jpg)
-
-  ## Menu:
-The left panel hosts a section dedicated to the Menu. This includes a list of all the items showing in the menu of the website. Any time the Admin User delete, add or change anything in this list, it will be updated on the main menu of the website. 
-![Menu](./documentation/readme/admin-menu.jpg)
-
-- ### Add item to Menu:
-In ordert to Add and item to the menu, the Admin User can click on the button “Add Menu Item” on the top right of the screen, after that it will be redirected to a page where they can input Name, Category, Description and price of the item.
-![Menu Items](./documentation/readme/admin-add-menuitems.jpg)
-
-- ### Change item to Menu:
-Admin user is able also to change any of the items of the Menu by selecting the item and editing anything they need in the editable page. Lastly they can decide if to Save or Discard the changes. 
-![Menu Items](./documentation/readme/admin-change-menuitems.jpg)
-
-  ## Manage Users:
+  ### Manage Users:
   From the User management panel, the Admin User has the ability to manage all the registered users on the website, including assigning account names and determining whether they are part of the Staff or not. Admin also can add new users or delete registered users.
   ![Users](./documentation/readme/admin-users.jpg)
 
-  ## Manage Tables:
+  ### Reservation:
+  - ### Add Reservation:
+  Admin can add a reservation any time they receive a request from customers by accessing to the reservation page from the left menu, clicking on the button “Add reservation” on the top right and proceed with filling the form with all the relevant information.
+  ![Add Reservation](./documentation/readme/admin-add-reservation.jpg)
+
+  - ### Change Reservation:
+  Admin can change the reservation by selecting the section “Reservations” on the left side panel, after that the user needs to select the reservation they are interested.
+  ![Reservations](./documentation/readme/admin-reservations.jpg)
+
+  A fully editable form will show, so that the user can change anything they need to, including date, time, number of people, and the assigned table. After editing they can save and see the updated reservation.
+  ![Add Reservation](./documentation/readme/admin-change-reservation.jpg)
+
+  ### Manage Tables:
   From the Tables section, the Admin User can select tables, add new tables, change tables number and thei capasity.
   ![Users](./documentation/readme/admin-tables.jpg)
+
+  ### Menu:
+  The left panel hosts a section dedicated to the Menu. This includes a list of all the items showing in the menu of the website. Any time the Admin User delete, add or change anything in this list, it will be updated on the main menu of the website. 
+  ![Menu](./documentation/readme/admin-menu.jpg)
+
+  - ### Add item to Menu:
+  In ordert to Add and item to the menu, the Admin User can click on the button “Add Menu Item” on the top right of the screen, after that it will be redirected to a page where they can input Name, Category, Description and price of the item.
+  ![Menu Items](./documentation/readme/admin-add-menuitems.jpg)
+
+  - ### Change item to Menu:
+  Admin user is able also to change any of the items of the Menu by selecting the item and editing anything they need in the editable page. Lastly they can decide if to Save or Discard the changes. 
+  ![Menu Items](./documentation/readme/admin-change-menuitems.jpg)
 
 
 # Technologies
@@ -543,8 +567,7 @@ To make the project live, Heroku was used for deployment.
     * [Github](https://github.com/foad-heidari/dj-booking)
     * [Stackoverflow](https://stackoverflow.com/)
 
-[Back to Top](#)
 
 ---
 
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+[Back to Top](#)
